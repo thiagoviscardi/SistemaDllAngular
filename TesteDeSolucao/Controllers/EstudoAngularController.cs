@@ -116,8 +116,9 @@ namespace TesteDeSolucao.Controllers
             Helper.JsonRetorno jsonRetorno = new Helper.JsonRetorno();
 
             Thiado.DataDll.Services.UsuarioService usuarioService = new Thiado.DataDll.Services.UsuarioService();
-            var itemNome = form["buscaNome"];// acho que não ta buscando o nome
-            var usuarios = usuarioService.CarregaUsuarioNome(itemNome);
+            var itemNome = form["buscaNome"];
+            var itemIdade = Convert.ToInt32(form["buscaIdade"]);
+            var usuarios = usuarioService.CarregaUsuarioNome(itemNome, itemIdade);
             jsonRetorno.Data = usuarios;
 
             return Json(jsonRetorno);

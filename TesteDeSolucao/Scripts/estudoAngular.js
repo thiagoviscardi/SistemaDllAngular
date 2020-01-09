@@ -4,7 +4,8 @@
     $scope.BuscarPorNome = function () {// poderia passar como parametro o nome e o buscaNome:nome
 
         aleatorios.loading();
-        aleatorios.ajax("POST", { buscaNome: $scope.nome }, "/EstudoAngular/BuscarPorNome", function (resposta) { //esse parametro de resposta tras a resposta do servidor. é como um return resposta
+        aleatorios.ajax("POST", { buscaNome: $scope.nome, buscaIdade: $scope.idade }, "/EstudoAngular/BuscarPorNome",
+            function (resposta) { //esse parametro de resposta tras a resposta do servidor. é como um return resposta
 
             $scope.lista = resposta.Data;
             $scope.$apply();

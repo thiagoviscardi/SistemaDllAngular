@@ -87,10 +87,27 @@ namespace Thiado.DataDll.Services
             return usuario;
         }
 
-        public List<Entidades.UsuarioEntidade> CarregaUsuarioNome(string nome)
+        public List<Entidades.UsuarioEntidade> CarregaUsuarioNome(string nome, int idade)
         {
             List<Entidades.UsuarioEntidade> lista = new List<Entidades.UsuarioEntidade>();
             Entidades.UsuarioEntidade usuario = null;
+            int a = idade;
+            if(idade.Equals(0))
+            {
+                foreach (var item in from n in _db.Usuarios where n.Nome.Contains(nome) && n.Idade == idade select n)
+                {
+                    usuario = new Entidades.UsuarioEntidade();
+                    usuario.Id = item.Id;
+                    usuario.Nome = item.Nome;
+                    usuario.Idade = item.Idade;
+                    usuario.Sexo = item.Sexo;
+                    usuario.Ativo = item.Ativo;
+
+                    lista.Add(usuario);
+                }
+            }
+            else { // ARRUMAR AQUI PRA SE NAO COLOCAR IDADE ELE BUSCAR SÓ POR NOME
+
             foreach (var item in from n in _db.Usuarios where n.Nome.Contains(nome) select n)
             {
                 usuario = new Entidades.UsuarioEntidade();
@@ -101,6 +118,7 @@ namespace Thiado.DataDll.Services
                 usuario.Ativo = item.Ativo;
 
                 lista.Add(usuario);
+            }
             }
             return lista;
         }
