@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="corSintec altura40 alinhamentos">
+    <h2 class="corSintec">Página de Clientes</h2>
+</div>
+<div class="tabelaClientes">
+    <form>
+        <input class="inputsCadastro1" type="text" name="Id" id="Id" /> Id<br />
+        <input class="inputsCadastro1" type="text" name="Nome" id="Nome" /> Nome<br />
+        <input class="inputsCadastro1" type="text" name="Idade" id="Idade" /> Idade<br />
+        <input class="inputsCadastro1" type="text" name="Sexo" id="Sexo" /> Sexo<br />
+    </form>
+</div>
+<div>
+    <input class="inputsCadastro" type="button" id="btnTeste" value="Teste">
+    <input class="inputsCadastro" type="button" id="btnAjax" value="Salva com Ajax">
+    <input class="inputsCadastro" type="button" id="btnBuscar" value="Buscar">
+</div>
+<div id="loading">
+    Loading...<br />
+    System.Threading.Thread.Sleep(1000); na controller em buscare
+</div>
+<div  class="tabelaClientes">
+    <table id="tblLista" border="1">
+        <thead>
+            <tr>
+                <td colspan="2"></td>
+                <td class="margem">Id</td>
+                <td class="margem">Nome</td>
+                <td class="margem">Idade</td>
+                <td class="margem">Sexo</td>
+            </tr>
+        </thead>
+        <tbody id="tblBody"></tbody><!--Está inserindo aqui dentro linhas que vemdo estudo.js. pelo js-->
+    </table>
+</div>
+@section scripts{
+    <script src="~/Scripts/estudo.js"></script>
+}
+

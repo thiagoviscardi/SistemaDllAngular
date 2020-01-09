@@ -1,0 +1,8 @@
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiago.Data\bin\Debug\netstandard2.0\Thiago.Data.deps.json
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiago.Data\bin\Debug\netstandard2.0\Thiago.Data.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiago.Data\bin\Debug\netstandard2.0\Thiago.Data.pdb
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiago.Data\obj\Debug\netstandard2.0\Thiago.Data.csprojAssemblyReference.cache
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiago.Data\obj\Debug\netstandard2.0\Thiago.Data.AssemblyInfoInputs.cache
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiago.Data\obj\Debug\netstandard2.0\Thiago.Data.AssemblyInfo.cs
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiago.Data\obj\Debug\netstandard2.0\Thiago.Data.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiago.Data\obj\Debug\netstandard2.0\Thiago.Data.pdb

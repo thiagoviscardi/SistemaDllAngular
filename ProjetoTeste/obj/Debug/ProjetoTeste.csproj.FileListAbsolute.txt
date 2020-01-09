@@ -1,0 +1,12 @@
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ProjetoTeste\bin\Debug\ProjetoTeste.exe.config
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ProjetoTeste\bin\Debug\ProjetoTeste.exe
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ProjetoTeste\bin\Debug\ProjetoTeste.pdb
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ProjetoTeste\obj\Debug\ProjetoTeste.csprojAssemblyReference.cache
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ProjetoTeste\obj\Debug\ProjetoTeste.exe
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ProjetoTeste\obj\Debug\ProjetoTeste.pdb
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ProjetoTeste\bin\Debug\Thiado.DataDll.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ProjetoTeste\bin\Debug\EntityFramework.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ProjetoTeste\bin\Debug\Thiado.DataDll.pdb
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ProjetoTeste\bin\Debug\Thiado.DataDll.dll.config
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ProjetoTeste\bin\Debug\EntityFramework.xml
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ProjetoTeste\obj\Debug\ProjetoTeste.csproj.CopyComplete

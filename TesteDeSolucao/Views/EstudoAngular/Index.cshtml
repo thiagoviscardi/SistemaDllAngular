@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-controller="MinhaController">
+
+    <div class="corSintec altura40 alinhamentos">
+        <h2 class="corSintec">Página de Clientes</h2>
+    </div>
+    <div class="tabelaClientes">
+        <form>
+            <input class="inputsCadastro1" type="text" name="Id" id="Id" ng-model="id" /> Id<br />
+            <input class="inputsCadastro1" type="text" name="Nome" id="Nome" ng-model="nome" /> Nome<br />
+            <input class="inputsCadastro1" type="text" name="Idade" id="Idade" ng-model="idade" /> Idade<br />
+            <input class="inputsCadastro1" type="text" name="Sexo" id="Sexo" ng-model="sexo" /> Sexo<br />
+        </form>
+    </div>
+    <div>
+        <input class="inputsCadastro" type="button"  value="Teste">
+        <input class="inputsCadastro" type="button"  value="Salva com Ajax" ng-click="Salvar()">
+        <input class="inputsCadastro" type="button" ng-click="Buscar()"  value="Buscar">
+        <input class="inputsCadastro" type="button" value="Busque por nome" ng-click="BuscarPorNome()" />
+    </div>
+    <div id="loading">
+        Loading...<br />
+        System.Threading.Thread.Sleep(800 ms); na controller em buscare
+    </div>
+    <div class="tabelaClientes">
+        <table id="tblLista" border="1">
+            <thead>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="margem">Id</td>
+                    <td class="margem">Nome</td>
+                    <td class="margem">Idade</td>
+                    <td class="margem">Sexo</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in lista">
+                    <td><a href="javascript:;" ng-click="Editar(item)">Editar</a></td>
+                    <td><a href="javascript:;" ng-click="Deletar(item.Id)">Deletar</a></td><!--ID COM I MAIUSCULO pois é o Id que vem do banco que no caso é maiusculo-->
+                    <td>{{item.Id}}</td>
+                    <td>{{item.Nome}}</td>
+                    <td>{{item.Idade}}</td>
+                    <td>{{item.Sexo}}</td>
+                </tr>
+            </tbody><!--Está inserindo aqui dentro linhas que vem do estudo.js. pelo js-->
+        </table>
+    </div>
+
+</div>
+@section scripts{
+    <script src="~/Scripts/estudoAngular.js"></script>
+}
+

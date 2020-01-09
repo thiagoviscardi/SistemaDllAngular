@@ -1,0 +1,11 @@
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\bin\Debug\Thiado.DataDll.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\bin\Debug\Thiado.DataDll.pdb
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\obj\Debug\Thiado.DataDll.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\obj\Debug\Thiado.DataDll.pdb
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\bin\Debug\Thiado.DataDll.dll.config
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\bin\Debug\EntityFramework.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\bin\Debug\EntityFramework.SqlServer.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\bin\Debug\EntityFramework.xml
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\bin\Debug\EntityFramework.SqlServer.xml
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\obj\Debug\Thiado.DataDll.csproj.CopyComplete
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\obj\Debug\Thiado.DataDll.csprojAssemblyReference.cache

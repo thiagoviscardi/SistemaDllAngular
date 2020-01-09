@@ -1,0 +1,16 @@
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ServicoWindows1\bin\Debug\ServicoWindows1.exe.config
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ServicoWindows1\bin\Debug\ServicoWindows1.exe
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ServicoWindows1\bin\Debug\ServicoWindows1.pdb
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ServicoWindows1\obj\Debug\ServicoWindows1.exe
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ServicoWindows1\obj\Debug\ServicoWindows1.pdb
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ServicoWindows1\bin\Debug\Thiado.DataDll.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ServicoWindows1\bin\Debug\EntityFramework.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ServicoWindows1\bin\Debug\Thiado.DataDll.pdb
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ServicoWindows1\bin\Debug\Thiado.DataDll.dll.config
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ServicoWindows1\bin\Debug\EntityFramework.xml
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ServicoWindows1\obj\Debug\ServicoWindows1.csprojAssemblyReference.cache
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ServicoWindows1\obj\Debug\ServicoWindows1.csproj.CopyComplete
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ServicoWindows1\bin\Debug\EntityFramework.SqlServer.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ServicoWindows1\bin\Debug\EntityFramework.SqlServer.xml
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ServicoWindows1\obj\Debug\ServicoWindows1.ProjectInstaller.resources
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ServicoWindows1\obj\Debug\ServicoWindows1.csproj.GenerateResource.cache

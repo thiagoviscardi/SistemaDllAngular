@@ -1,0 +1,7 @@
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiago.Data\bin\Debug\netstandard2.0\Thiago.DataDll.deps.json
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiago.Data\bin\Debug\netstandard2.0\Thiago.DataDll.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiago.Data\bin\Debug\netstandard2.0\Thiago.DataDll.pdb
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiago.Data\obj\Debug\netstandard2.0\Thiago.DataDll.AssemblyInfoInputs.cache
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiago.Data\obj\Debug\netstandard2.0\Thiago.DataDll.AssemblyInfo.cs
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiago.Data\obj\Debug\netstandard2.0\Thiago.DataDll.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiago.Data\obj\Debug\netstandard2.0\Thiago.DataDll.pdb
