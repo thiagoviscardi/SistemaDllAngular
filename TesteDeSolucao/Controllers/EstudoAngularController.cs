@@ -111,13 +111,23 @@ namespace TesteDeSolucao.Controllers
             return Json(jsonRetorno);
         }
 
-        public JsonResult BuscarPorNome(FormCollection form)//mapear e depois salvar
-        {
+        public JsonResult BuscarPorNome(FormCollection form)// pega mais de um parametro do form?? acho que sim
+        {//aqui nao precisaria ter dois parametros para aceitar os dois que vem do js?????
             Helper.JsonRetorno jsonRetorno = new Helper.JsonRetorno();
 
             Thiado.DataDll.Services.UsuarioService usuarioService = new Thiado.DataDll.Services.UsuarioService();
-            var itemNome = form["buscaNome"];
-            var itemIdade = Convert.ToInt32(form["buscaIdade"]);
+            var itemNome = form["buscaNome"];//ENTENDER MELHOR!!!
+            var itemIdade = 0;
+            
+            if (form["buscaIdade"] == "0" || form["buscaIdade"] == null || form["buscaIdade"] == "")
+            {
+                itemIdade = 0;
+            }
+            else
+            {
+                itemIdade = Convert.ToInt32(form["buscaIdade"]);
+            }
+           
             var usuarios = usuarioService.CarregaUsuarioNome(itemNome, itemIdade);
             jsonRetorno.Data = usuarios;
 

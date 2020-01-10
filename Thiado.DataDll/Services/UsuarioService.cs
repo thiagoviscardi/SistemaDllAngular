@@ -92,10 +92,10 @@ namespace Thiado.DataDll.Services
             List<Entidades.UsuarioEntidade> lista = new List<Entidades.UsuarioEntidade>();
             Entidades.UsuarioEntidade usuario = null;
             int a = idade;
-            if(idade.Equals(0))
+            if(idade!=0)
             {
                 foreach (var item in from n in _db.Usuarios where n.Nome.Contains(nome) && n.Idade == idade select n)
-                {
+                {// aqui ele pula o mapeamento POR QUE???
                     usuario = new Entidades.UsuarioEntidade();
                     usuario.Id = item.Id;
                     usuario.Nome = item.Nome;
