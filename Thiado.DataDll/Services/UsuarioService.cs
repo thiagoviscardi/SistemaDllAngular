@@ -110,7 +110,7 @@ namespace Thiado.DataDll.Services
 
             else if (idade != 0 && nome != "")
             {
-                foreach (var item in from n in _db.Usuarios where n.Idade == idade && n.Nome.Contains(nome) select n)
+                foreach (var item in from n in _db.Usuarios where n.Idade == idade || n.Nome.Contains(nome) select n)
                 {
                     usuario = new Entidades.UsuarioEntidade();
                     usuario.Id = item.Id;
