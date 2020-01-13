@@ -12,7 +12,7 @@ namespace Thiado.DataDll.Services
         private Model.TreinamentoThiagoEntities1 _db = new Model.TreinamentoThiagoEntities1();//instanciando o banco
 
         ////////////////////////////////////METODO SALVAR//////////////////////////////// o que aconteceria se não retornasse o usuario?
-        public Entidades.UsuarioEntidade Salvar (Entidades.UsuarioEntidade usuario)
+        public Entidades.UsuarioEntidade Salvar(Entidades.UsuarioEntidade usuario)
         {
             Model.Usuarios usuarioDB = new Model.Usuarios();
             if (usuario.Id > 0)// ou seja, se já existe um usuario iremos fazer um select para editar posteriormente.
@@ -21,9 +21,9 @@ namespace Thiado.DataDll.Services
             }
             usuarioDB.Id = usuario.Id;
             usuarioDB.Nome = usuario.Nome;
-           
+
             usuarioDB.Idade = usuario.Idade;
-            
+
             usuarioDB.Sexo = usuario.Sexo;
             usuarioDB.Ativo = usuario.Ativo;
 
@@ -42,7 +42,7 @@ namespace Thiado.DataDll.Services
         public bool Deletar(int id)
         {
             var usuarioDB = (from n in _db.Usuarios where n.Id == id select n).SingleOrDefault(); // fazer o select no usuario que queremos
-            if(usuarioDB!=null)
+            if (usuarioDB != null)
             {
                 _db.Usuarios.Remove(usuarioDB);
                 _db.SaveChanges();
@@ -83,7 +83,7 @@ namespace Thiado.DataDll.Services
                 usuario.Ativo = buscaUsuario.Ativo;
             }
 
-            
+
             return usuario;
         }
 
@@ -92,9 +92,55 @@ namespace Thiado.DataDll.Services
             List<Entidades.UsuarioEntidade> lista = new List<Entidades.UsuarioEntidade>();
             Entidades.UsuarioEntidade usuario = null;
             int a = idade;
-            if(idade!=0)
+
+            if (idade != 0 && nome != null)
             {
-                foreach (var item in from n in _db.Usuarios where n.Nome.Contains(nome) && n.Idade == idade select n)
+                foreach (var item in from n in _db.Usuarios where n.Idade == idade && n.Nome.Contains(nome) select n)
+                {
+                    usuario = new Entidades.UsuarioEntidade();
+                    usuario.Id = item.Id;
+                    usuario.Nome = item.Nome;
+                    usuario.Idade = item.Idade;
+                    usuario.Sexo = item.Sexo;
+                    usuario.Ativo = item.Ativo;
+
+                    lista.Add(usuario);
+                }
+            }
+
+            else if (idade != 0 && nome != "")
+            {
+                foreach (var item in from n in _db.Usuarios where n.Idade == idade && n.Nome.Contains(nome) select n)
+                {
+                    usuario = new Entidades.UsuarioEntidade();
+                    usuario.Id = item.Id;
+                    usuario.Nome = item.Nome;
+                    usuario.Idade = item.Idade;
+                    usuario.Sexo = item.Sexo;
+                    usuario.Ativo = item.Ativo;
+
+                    lista.Add(usuario);
+                }
+            }
+
+
+            else if (idade != 0)
+            {
+                foreach (var item in from n in _db.Usuarios where n.Idade == idade select n)
+                {
+                    usuario = new Entidades.UsuarioEntidade();
+                    usuario.Id = item.Id;
+                    usuario.Nome = item.Nome;
+                    usuario.Idade = item.Idade;
+                    usuario.Sexo = item.Sexo;
+                    usuario.Ativo = item.Ativo;
+
+                    lista.Add(usuario);
+                }
+            }
+            else if (nome != "")
+            {
+                foreach (var item in from n in _db.Usuarios where n.Nome.Contains(nome) select n)
                 {// aqui ele pula o mapeamento POR QUE???
                     usuario = new Entidades.UsuarioEntidade();
                     usuario.Id = item.Id;
@@ -106,20 +152,7 @@ namespace Thiado.DataDll.Services
                     lista.Add(usuario);
                 }
             }
-            else { // ARRUMAR AQUI PRA SE NAO COLOCAR IDADE ELE BUSCAR SÓ POR NOME
 
-            foreach (var item in from n in _db.Usuarios where n.Nome.Contains(nome) select n)
-            {
-                usuario = new Entidades.UsuarioEntidade();
-                usuario.Id = item.Id;
-                usuario.Nome = item.Nome;
-                usuario.Idade = item.Idade;
-                usuario.Sexo = item.Sexo;
-                usuario.Ativo = item.Ativo;
-
-                lista.Add(usuario);
-            }
-            }
             return lista;
         }
     }
