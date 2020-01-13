@@ -7,9 +7,10 @@
         aleatorios.ajax("POST", { buscaNome: $scope.nome, buscaIdade: $scope.idade }, "/EstudoAngular/BuscarPorNome",
             function (resposta) { //esse parametro de resposta tras a resposta do servidor. é como um return resposta
 
-            $scope.lista = resposta.Data;
-            $scope.$apply();
-            aleatorios.fimLoading();
+                $scope.lista = resposta.Data;
+                $scope.quantidade = resposta.Data.length;
+                $scope.$apply();// isso faz aplicar a troca ou mudança do scope
+                aleatorios.fimLoading();
         })
     };
 
@@ -17,7 +18,7 @@
 
         aleatorios.loading();
         aleatorios.ajax("POST", {}, "/EstudoAngular/buscare",
-            function (resposta) { //esse parametro de resposta tras a resposta do servidor. é como um return resposta
+            function (resposta) { 
 
                 $scope.lista = resposta.Data;
                 $scope.$apply();
@@ -50,6 +51,13 @@
         });
 
 
+    }
+
+    $scope.Quantidade = function () {
+        aleatorios.ajax("POST", {}, "/EstudoAngular/buscare", function (resposta) {
+            $scope.quantidade = resposta.Data.length;
+            $scope.$apply();
+        });
     }
 
 });
