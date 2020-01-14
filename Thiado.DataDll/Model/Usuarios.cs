@@ -14,10 +14,19 @@ namespace Thiado.DataDll.Model
     
     public partial class Usuarios
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Usuarios()
+        {
+            this.Correias = new HashSet<Correias>();
+        }
+    
         public int Id { get; set; }
         public string Nome { get; set; }
         public int Idade { get; set; }
         public string Sexo { get; set; }
         public bool Ativo { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Correias> Correias { get; set; }
     }
 }

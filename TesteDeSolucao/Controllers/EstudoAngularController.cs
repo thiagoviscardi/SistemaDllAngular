@@ -84,7 +84,7 @@ namespace TesteDeSolucao.Controllers
 
             //////////////////////////////////////////////CRITICAS////////////////////////////////////////////////////
             usuario.Id = number1;
-            usuario.Nome = form["Nome"].ToString();
+            usuario.Nome = form["Nome"].ToString();// esse nome vem de onde mesmo?acho que do name="Id" do input
             usuario.Sexo = form["Sexo"].ToString();
             usuario.Idade = Convert.ToInt32(form["Idade"]);
             usuario.Ativo = true;

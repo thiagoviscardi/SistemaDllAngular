@@ -4,7 +4,16 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TreinamentoThiagoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TreinamentoThiagoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Correias">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Preco" Type="real" Nullable="false" />
+          <Property Name="IdResponsavel" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Usuarios">
           <Key>
             <PropertyRef Name="Id" />
@@ -15,41 +24,95 @@
           <Property Name="Sexo" Type="char" MaxLength="1" Nullable="false" />
           <Property Name="Ativo" Type="bit" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Correias_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="Correias" Type="Self.Correias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Correias">
+              <PropertyRef Name="IdResponsavel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="TreinamentoThiagoModelStoreContainer">
+          <EntitySet Name="Correias" EntityType="Self.Correias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Correias_Usuarios" Association="Self.FK_Correias_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Correias" EntitySet="Correias" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TreinamentoThiagoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TreinamentoThiagoEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Correias" EntityType="TreinamentoThiagoModel.Correias" />
+          <EntitySet Name="Usuarios" EntityType="TreinamentoThiagoModel.Usuarios" />
+          <AssociationSet Name="FK_Correias_Usuarios" Association="TreinamentoThiagoModel.FK_Correias_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Correias" EntitySet="Correias" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Correias">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Preco" Type="Single" Nullable="false" />
+          <Property Name="IdResponsavel" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Usuarios" Relationship="TreinamentoThiagoModel.FK_Correias_Usuarios" FromRole="Correias" ToRole="Usuarios" />
+        </EntityType>
         <EntityType Name="Usuarios">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Idade" Type="Int32" Nullable="false" />
-          <Property Name="Sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Sexo" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Correias" Relationship="TreinamentoThiagoModel.FK_Correias_Usuarios" FromRole="Usuarios" ToRole="Correias" />
         </EntityType>
-        <EntityContainer Name="TreinamentoThiagoEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
-        </EntityContainer>
-      </Schema>
+        <Association Name="FK_Correias_Usuarios">
+          <End Type="TreinamentoThiagoModel.Usuarios" Role="Usuarios" Multiplicity="1" />
+          <End Type="TreinamentoThiagoModel.Correias" Role="Correias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Correias">
+              <PropertyRef Name="IdResponsavel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="TreinamentoThiagoModelStoreContainer" CdmEntityContainer="TreinamentoThiagoEntities1">
+          <EntitySetMapping Name="Correias">
+            <EntityTypeMapping TypeName="TreinamentoThiagoModel.Correias">
+              <MappingFragment StoreEntitySet="Correias">
+                <ScalarProperty Name="IdResponsavel" ColumnName="IdResponsavel" />
+                <ScalarProperty Name="Preco" ColumnName="Preco" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Usuarios">
             <EntityTypeMapping TypeName="TreinamentoThiagoModel.Usuarios">
               <MappingFragment StoreEntitySet="Usuarios">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Nome" ColumnName="Nome" />
-                <ScalarProperty Name="Idade" ColumnName="Idade" />
-                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
                 <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Idade" ColumnName="Idade" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

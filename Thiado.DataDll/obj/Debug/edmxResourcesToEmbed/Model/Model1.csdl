@@ -1,16 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="TreinamentoThiagoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="TreinamentoThiagoEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Correias" EntityType="TreinamentoThiagoModel.Correias" />
+    <EntitySet Name="Usuarios" EntityType="TreinamentoThiagoModel.Usuarios" />
+    <AssociationSet Name="FK_Correias_Usuarios" Association="TreinamentoThiagoModel.FK_Correias_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Correias" EntitySet="Correias" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Correias">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Preco" Type="Single" Nullable="false" />
+    <Property Name="IdResponsavel" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Usuarios" Relationship="TreinamentoThiagoModel.FK_Correias_Usuarios" FromRole="Correias" ToRole="Usuarios" />
+  </EntityType>
   <EntityType Name="Usuarios">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Idade" Type="Int32" Nullable="false" />
-    <Property Name="Sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Sexo" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
     <Property Name="Ativo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Correias" Relationship="TreinamentoThiagoModel.FK_Correias_Usuarios" FromRole="Usuarios" ToRole="Correias" />
   </EntityType>
-  <EntityContainer Name="TreinamentoThiagoEntities1" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
-  </EntityContainer>
+  <Association Name="FK_Correias_Usuarios">
+    <End Type="TreinamentoThiagoModel.Usuarios" Role="Usuarios" Multiplicity="1" />
+    <End Type="TreinamentoThiagoModel.Correias" Role="Correias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Correias">
+        <PropertyRef Name="IdResponsavel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

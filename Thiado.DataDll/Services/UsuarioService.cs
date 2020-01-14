@@ -19,7 +19,7 @@ namespace Thiado.DataDll.Services
             {
                 usuarioDB = (from n in _db.Usuarios where n.Id == usuario.Id select n).SingleOrDefault();// seleciona um usuario ou retorna null?
             }
-            usuarioDB.Id = usuario.Id;
+            //usuarioDB.Id = usuario.Id;
             usuarioDB.Nome = usuario.Nome;
 
             usuarioDB.Idade = usuario.Idade;

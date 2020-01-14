@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-controller="MinhaControllerCorreia">
+
+    <div class="corSintec altura40 alinhamentos">
+        <h2 class="corSintec">Página de Correias</h2>
+    </div>
+    <div class="tabelaClientes">
+        <form>
+            <input class="inputsCadastro1" type="text" name="Id" id="Id" ng-model="id" /> Id Correia<br />
+            <input class="inputsCadastro1" type="text" name="Nome" id="Nome" ng-model="nome" /> Nome Correia<br />
+            <input class="inputsCadastro1" type="text" name="IdUsuario" id="IdUsuario" ng-model="idUsuario" /> Id Usuario<br />
+            <input class="inputsCadastro1" type="text" name="Preco" id="Preco" ng-model="preco" /> Preço<br />
+        </form>
+    </div>
+    <div>
+        <input class="inputsCadastro" type="button" value="Quantidade" ng-click="Quantidade()">
+        <input class="inputsCadastro" type="button" value="Salva com Ajax" ng-click="SalvaCorreia()">
+        <input class="inputsCadastro" type="button" ng-click="Buscar()" value="Buscar">
+        <input class="inputsCadastro" type="button" value="Busque por nome" ng-click="BuscarCorreiaNome()" />
+        <input class="inputsCadastro" type="button" value="Busque pelo usuario" ng-click="BuscarUsuario()" />
+    </div>
+    <div id="loading">
+        Loading...<br />
+        System.Threading.Thread.Sleep(800 ms); na controller em buscare
+    </div>
+    <div class="tabelaClientes">
+
+
+        Quantidade : {{quantidade}}
+        <table id="tblLista" border="1">
+            <thead>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="margem">Id</td>
+                    <td class="margem">Nome</td>
+                    <td class="margem">IdUsuario</td>
+                    <td class="margem">Preco</td>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr ng-repeat="item in lista">
+                    <td><a href="javascript:;" ng-click="Editar(item)">Editar</a></td>
+                    <td><a href="javascript:;" ng-click="Deletar(item.Id)">Deletar</a></td><!--ID COM I MAIUSCULO pois é o Id que vem do banco que no caso é maiusculo-->
+                    <td>{{item.Id}}</td>
+                    <td>{{item.Nome}}</td>
+                    <td>{{item.IdUsuario}}</td>
+                    <td>{{item.Preco}}</td>
+                </tr>
+            </tbody><!--Está inserindo aqui dentro linhas que vem do estudo.js. pelo js-->
+        </table>
+    </div>
+
+</div>
+@section scripts{
+    <script src="~/Scripts/correia.js"></script>
+}
+

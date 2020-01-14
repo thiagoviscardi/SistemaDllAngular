@@ -10,3 +10,5 @@ C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ProjetoTeste\bin\Debug\Thiado.D
 C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ProjetoTeste\bin\Debug\Thiado.DataDll.dll.config
 C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ProjetoTeste\bin\Debug\EntityFramework.xml
 C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ProjetoTeste\obj\Debug\ProjetoTeste.csproj.CopyComplete
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ProjetoTeste\bin\Debug\EntityFramework.SqlServer.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\ProjetoTeste\bin\Debug\EntityFramework.SqlServer.xml

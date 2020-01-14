@@ -167,6 +167,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\CorreiaController.cs" />
     <Compile Include="Controllers\EstudoAngularController.cs" />
     <Compile Include="Controllers\EstudoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -211,6 +212,7 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\correia.js" />
     <Content Include="Scripts\estudoAngular.js" />
     <Content Include="Scripts\master.js" />
     <Content Include="Scripts\estudo.js" />
@@ -235,6 +237,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Estudo\Index.cshtml" />
     <Content Include="Views\EstudoAngular\Index.cshtml" />
+    <Content Include="Views\Correia\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

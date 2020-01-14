@@ -25,6 +25,7 @@ namespace Thiado.DataDll.Model
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Correias> Correias { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
     }
 }
