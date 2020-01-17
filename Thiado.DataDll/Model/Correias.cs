@@ -19,6 +19,6 @@ namespace Thiado.DataDll.Model
         public float Preco { get; set; }
         public int IdResponsavel { get; set; }
     
-        public virtual Usuarios Usuarios { get; set; }
+        public virtual Usuarios Usuarios { get; set; }// de onde veio isso??
     }
 }

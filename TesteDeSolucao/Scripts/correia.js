@@ -1,4 +1,4 @@
-﻿APP.controller('MinhaControllerCorreia', function ($scope) {
+﻿APP.controller('MinhaControllerCorreia', function ($scope) {// dentro desse scope tem tudo lá do html onde tem o angular?
 
     $scope.BuscarCorreiaNome = function () {
         aleatorios.loading();
@@ -15,7 +15,15 @@
 
         var json = $("FORM").serializeArray();
         aleatorios.ajax("POST", json, "/correia/Controller_Salvar_Correia", function (resposta) {
-            alert("Salvo");
+            $scope.Buscar();
+            //alert("Salvo");
+        })
+    }
+
+    $scope.Buscar = function () {
+        aleatorios.ajax("POST", {}, "/correia/Controller_Buscar", function (resposta) {
+            $scope.lista = resposta.Data;
+            $scope.$apply();
         })
     }
 });

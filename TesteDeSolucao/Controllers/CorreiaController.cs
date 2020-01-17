@@ -27,5 +27,14 @@ namespace TesteDeSolucao.Controllers
             servico.SalvarCorreia(correia);
             return Json(JsonRetorno);
         }
+
+        public JsonResult Controller_Buscar(FormCollection form)
+        {
+            Helper.JsonRetorno JsonRetorno = new Helper.JsonRetorno();
+            Thiado.DataDll.Services.CorreiaService servicoCorreia = new Thiado.DataDll.Services.CorreiaService();
+            var correia = servicoCorreia.ListarCorreias();
+            JsonRetorno.Data = correia;
+            return Json(JsonRetorno);
+        }
     }
 }

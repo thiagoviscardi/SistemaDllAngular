@@ -15,7 +15,7 @@ namespace Thiado.DataDll.Services
             Model.Correias correiaDB = new Model.Correias();
             if (correia.Id > 0)
             {
-                correiaDB = (from n in _db.Correias where n.Id == correia.Id select n).SingleOrDefault();
+                correiaDB = (from n in _db.Correias where n.Id == correia.Id select n).SingleOrDefault();// esse Correias depois do _db é a tabela do banco né?!
             }
             //correiaDB.Id = correia.Id;
             correiaDB.IdResponsavel = correia.IdResponsavel;
@@ -32,6 +32,23 @@ namespace Thiado.DataDll.Services
             correia.Id = correiaDB.Id;
 
             return correia;
+        }
+
+        public List<Entidades.CorreiaEntidade> ListarCorreias()
+        {
+            Entidades.CorreiaEntidade correiaEntidade = null;
+            List<Entidades.CorreiaEntidade> lista = new List<Entidades.CorreiaEntidade>();
+            foreach (var item in from n in _db.Correias select n)
+            {
+                correiaEntidade = new Entidades.CorreiaEntidade();
+                correiaEntidade.Id = item.Id;
+                correiaEntidade.IdResponsavel = item.IdResponsavel;
+                correiaEntidade.Nome = item.Nome;
+                correiaEntidade.Preco = item.Preco;
+
+                lista.Add(correiaEntidade);
+            }
+            return lista;
         }
     }
 }

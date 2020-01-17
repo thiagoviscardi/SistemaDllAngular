@@ -20,7 +20,7 @@
     <div>
         <input class="inputsCadastro" type="button" value="Quantidade" ng-click="Quantidade()">
         <input class="inputsCadastro" type="button" value="Salva com Ajax" ng-click="SalvaCorreia()">
-        <input class="inputsCadastro" type="button" ng-click="Buscar()" value="Buscar">
+        <input class="inputsCadastro" type="button" ng-click="Buscar()" value="Buscar correias">
         <input class="inputsCadastro" type="button" value="Busque por nome" ng-click="BuscarCorreiaNome()" />
         <input class="inputsCadastro" type="button" value="Busque pelo usuario" ng-click="BuscarUsuario()" />
     </div>
@@ -50,7 +50,7 @@
                     <td><a href="javascript:;" ng-click="Deletar(item.Id)">Deletar</a></td><!--ID COM I MAIUSCULO pois é o Id que vem do banco que no caso é maiusculo-->
                     <td>{{item.Id}}</td>
                     <td>{{item.Nome}}</td>
-                    <td>{{item.IdUsuario}}</td>
+                    <td>{{item.IdResponsavel}}</td>
                     <td>{{item.Preco}}</td>
                 </tr>
             </tbody><!--Está inserindo aqui dentro linhas que vem do estudo.js. pelo js-->
