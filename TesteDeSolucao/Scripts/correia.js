@@ -18,12 +18,21 @@
             $scope.Buscar();
             //alert("Salvo");
         })
-    }
+    };
 
     $scope.Buscar = function () {
         aleatorios.ajax("POST", {}, "/correia/Controller_Buscar", function (resposta) {
             $scope.lista = resposta.Data;
             $scope.$apply();
         })
+    };
+
+    $scope.Editar = function (item) {// por que não está achando os atributos do item la do html?? o idUsuario por exemplo
+        
+        $scope.id = item.Id;
+        //$scope.IdResponsavel = item.IdResponsavel;
+        $scope.nome = item.Nome;
+        $scope.preco = item.Preco;// o primeiro preco é lá dos inputs onde via ser colocado e o segundo é do banco
+        
     }
 });

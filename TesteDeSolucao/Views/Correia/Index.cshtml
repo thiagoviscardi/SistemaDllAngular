@@ -13,7 +13,7 @@
         <form>
             <input class="inputsCadastro1" type="text" name="Id" id="Id" ng-model="id" /> Id Correia<br />
             <input class="inputsCadastro1" type="text" name="Nome" id="Nome" ng-model="nome" /> Nome Correia<br />
-            <input class="inputsCadastro1" type="text" name="IdUsuario" id="IdUsuario" ng-model="idUsuario" /> Id Usuario<br />
+            <input class="inputsCadastro1" type="text" name="IdResponsavel" id="IdResponsavel" ng-model="IdResponsavel" /> Id Responsavel<br />
             <input class="inputsCadastro1" type="text" name="Preco" id="Preco" ng-model="preco" /> Preço<br />
         </form>
     </div>
@@ -48,7 +48,7 @@
                 <tr ng-repeat="item in lista">
                     <td><a href="javascript:;" ng-click="Editar(item)">Editar</a></td>
                     <td><a href="javascript:;" ng-click="Deletar(item.Id)">Deletar</a></td><!--ID COM I MAIUSCULO pois é o Id que vem do banco que no caso é maiusculo-->
-                    <td>{{item.Id}}</td>
+                    <td>{{item.Id}}</td> 
                     <td>{{item.Nome}}</td>
                     <td>{{item.IdResponsavel}}</td>
                     <td>{{item.Preco}}</td>

@@ -50,5 +50,10 @@ namespace Thiado.DataDll.Services
             }
             return lista;
         }
+
+        //public Entidades.CorreiaEntidade EditarCorreia(int id)
+        //{
+
+        //}
     }
 }
