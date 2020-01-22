@@ -47,5 +47,7 @@
         $scope.nome = item.Nome;
         $scope.preco = item.Preco;// o primeiro preco é lá dos inputs onde via ser colocado e o segundo é do banco
 
+
+
     }
 });

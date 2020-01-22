@@ -141,8 +141,18 @@ namespace TesteDeSolucao.Controllers
 
             Thiado.DataDll.Services.UsuarioService usuario = new Thiado.DataDll.Services.UsuarioService();
             var id = form["registroId"];// ENTENDER MELHOR ISSO AQUI AINDA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            var usuarios = usuario.Deletar(Convert.ToInt32(id));
-            jsonRetorno.Data = usuarios;
+
+            Thiado.DataDll.Entidades.CorreiaEntidade correia = new Thiado.DataDll.Entidades.CorreiaEntidade();
+
+            if (new Thiado.DataDll.Services.CorreiaService().VerificaSeTemCorreia(correia.Id))
+            {
+                jsonRetorno.Mensagem = "Deletar primeiro as correias que possuem o IdResponsavel: " + correia.IdResponsavel; //mensagem de tem que deletar primeiro a correia de id tal
+            }
+            else
+            {
+                var usuarios = usuario.Deletar(Convert.ToInt32(id));
+                jsonRetorno.Data = usuarios;
+            }
 
             return Json(jsonRetorno);
         }

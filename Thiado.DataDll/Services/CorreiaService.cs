@@ -10,6 +10,20 @@ namespace Thiado.DataDll.Services
     {
         private Model.TreinamentoThiagoEntities1 _db = new Model.TreinamentoThiagoEntities1();
         // tenho que ficar usando essas conexões diferentes??
+
+        public bool VerificaSeTemCorreia(int id)
+        {
+            var temCorreia = (from n in _db.Correias where n.Id == id select n).SingleOrDefault(); // fazer o select no usuario que queremos
+            if (temCorreia != null)
+            {
+                return true;
+            }
+
+                return false;//                  CONTINUAR DAQUI!!
+           // return _db.Correias.Count(n => n.Id == id) > 0;// entender isso do banco como fazer???
+
+        }
+
         public Entidades.CorreiaEntidade SalvarCorreia(Entidades.CorreiaEntidade correia)
         {
             Model.Correias correiaDB = new Model.Correias();

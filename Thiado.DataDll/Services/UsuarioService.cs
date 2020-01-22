@@ -16,11 +16,7 @@ namespace Thiado.DataDll.Services
             return _db.Usuarios.Count(n => n.Id == id)>0;
 
         }
-
-
         ////////////////////////////////////METODO SALVAR//////////////////////////////// o que aconteceria se não retornasse o usuario?
-
-
 
         public Entidades.UsuarioEntidade Salvar(Entidades.UsuarioEntidade usuario)
         {

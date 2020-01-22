@@ -33,11 +33,37 @@
         $scope.idade = item.Idade;
         $scope.sexo = item.Sexo;
 
+        if (resposta.Criticas.length > 0) {// COLOCAF ISSO SEMPR ENO SALVAR EDITAR E DELETAR
+
+            $(resposta.Criticas).each(function () {
+                $("#" + this.CampoId).addClass("formErro");
+                $("#" + this.CampoId).attr("Title", this.Mensagem);
+            });
+        } else {
+            if (resposta.Mensagem.length > 0) {
+                alert(resposta.Mensagem);
+            }
+        }
+
     };
 
     $scope.Deletar = function (id) {//DELETAR AJAX COM ANGULAR!
         aleatorios.ajax("POST", { registroId: id }, "/EstudoAngular/deletar", function (resposta) {
             $scope.Buscar();
+
+            if (resposta.Criticas.length > 0) {// COLOCAF ISSO SEMPRE NO SALVAR EDITAR E DELETAR
+
+                $(resposta.Criticas).each(function () {
+                    //$("#" + this.CampoId).addClass("formErro");
+                    //$("#" + this.CampoId).attr("Title", this.Mensagem);
+                    alert(resposta.Mensagem);
+                });
+            } else {
+                if (resposta.Mensagem.length > 0) {
+                    alert(resposta.Mensagem);
+                }
+            }
+
         });
     };
 
@@ -46,6 +72,18 @@
         var json = $("FORM").serializeArray();
 
         aleatorios.ajax("POST", json, "/EstudoAngular/salvar", function (resposta) {
+
+            if (resposta.Criticas.length > 0) {// COLOCAF ISSO SEMPR ENO SALVAR EDITAR E DELETAR
+
+                $(resposta.Criticas).each(function () {
+                    $("#" + this.CampoId).addClass("formErro");
+                    $("#" + this.CampoId).attr("Title", this.Mensagem);
+                });
+            } else {
+                if (resposta.Mensagem.length > 0) {
+                    alert(resposta.Mensagem);
+                }
+            }
 
             $scope.Buscar();
         });
