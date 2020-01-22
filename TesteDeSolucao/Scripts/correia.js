@@ -5,7 +5,7 @@
 
         aleatorios.ajax("POST", { buscapeloNome: $scope.nome }, "/correia/Controller_Salvar_Correia", function (resposta) {
             $scope.lista = resposta.Data;
-           // $scope.quantidade = resposta.Data.length;
+            // $scope.quantidade = resposta.Data.length;
             $scope.$apply();// isso faz aplicar a troca ou mudança do scope
             aleatorios.fimLoading();
         })
@@ -16,7 +16,20 @@
         var json = $("FORM").serializeArray();
         aleatorios.ajax("POST", json, "/correia/Controller_Salvar_Correia", function (resposta) {
             $scope.Buscar();
-            //alert("Salvo");
+
+            if (resposta.Criticas.length > 0) {// COLOCAF ISSO SEMPR ENO SALVAR EDITAR E DELETAR
+
+                $(resposta.Criticas).each(function () {
+                    $("#" + this.CampoId).addClass("formErro");
+                    $("#" + this.CampoId).attr("Title", this.Mensagem);
+                });
+            } else {
+                if (resposta.Mensagem.length > 0) {
+                    alert(resposta.Mensagem);
+                }
+            }
+
+
         })
     };
 
@@ -28,11 +41,11 @@
     };
 
     $scope.Editar = function (item) {// por que não está achando os atributos do item la do html?? o idUsuario por exemplo
-        
+
         $scope.id = item.Id;
         //$scope.IdResponsavel = item.IdResponsavel;
         $scope.nome = item.Nome;
         $scope.preco = item.Preco;// o primeiro preco é lá dos inputs onde via ser colocado e o segundo é do banco
-        
+
     }
 });

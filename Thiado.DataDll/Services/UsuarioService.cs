@@ -11,7 +11,17 @@ namespace Thiado.DataDll.Services
     {
         private Model.TreinamentoThiagoEntities1 _db = new Model.TreinamentoThiagoEntities1();//instanciando o banco
 
+        public bool VerificaExistencia(int id)
+        {
+            return _db.Usuarios.Count(n => n.Id == id)>0;
+
+        }
+
+
         ////////////////////////////////////METODO SALVAR//////////////////////////////// o que aconteceria se não retornasse o usuario?
+
+
+
         public Entidades.UsuarioEntidade Salvar(Entidades.UsuarioEntidade usuario)
         {
             Model.Usuarios usuarioDB = new Model.Usuarios();
