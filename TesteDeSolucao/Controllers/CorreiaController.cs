@@ -38,7 +38,7 @@ namespace TesteDeSolucao.Controllers
             if (new Thiado.DataDll.Services.UsuarioService().VerificaExistencia(correia.IdResponsavel))
             {
                 servico.SalvarCorreia(correia);
-                JsonRetorno.Mensagem = "usuario cadastrado com sucesso";
+                JsonRetorno.Mensagem = "Correia cadastrada com sucesso!!";
             } else
             {
 
@@ -47,6 +47,16 @@ namespace TesteDeSolucao.Controllers
             }
             
             return Json(JsonRetorno);
+        }
+
+        public JsonResult deletarCorreia(FormCollection form)
+        {
+            var id = form["idDeletar"];
+            Helper.JsonRetorno jsonRetorno = new Helper.JsonRetorno();
+            Thiado.DataDll.Services.CorreiaService correiaService = new Thiado.DataDll.Services.CorreiaService();
+            Thiado.DataDll.Entidades.CorreiaEntidade correia = new Thiado.DataDll.Entidades.CorreiaEntidade();
+            correiaService.Deletar(Convert.ToInt32(id));
+            return Json(jsonRetorno);
         }
 
         public JsonResult Controller_Buscar(FormCollection form)

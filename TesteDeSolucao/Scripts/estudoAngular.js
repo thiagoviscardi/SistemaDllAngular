@@ -26,7 +26,7 @@
             });
     };
 
-    $scope.Editar = function (item) {
+    $scope.Editar = function (item) {// de onde vem esse item?
 
         $scope.id = item.Id;
         $scope.nome = item.Nome;
@@ -47,7 +47,7 @@
 
     };
 
-    $scope.Deletar = function (id) {//DELETAR AJAX COM ANGULAR!
+    $scope.Deletar = function (id) {// de onde vem esse id? quem t aenviando esse parametro pra essa funcao??
         aleatorios.ajax("POST", { registroId: id }, "/EstudoAngular/deletar", function (resposta) {
             $scope.Buscar();
 

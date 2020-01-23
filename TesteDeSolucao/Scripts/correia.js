@@ -33,6 +33,25 @@
         })
     };
 
+    $scope.DeletarCorreia = function (id) {
+        aleatorios.ajax("POST", { idDeletar: id }, "/correia/deletarCorreia", function (resposta) {
+            $scope.Buscar();
+
+            if (resposta.Criticas.length > 0) {// COLOCAF ISSO SEMPR ENO SALVAR EDITAR E DELETAR
+
+                $(resposta.Criticas).each(function () {
+                    $("#" + this.CampoId).addClass("formErro");
+                    $("#" + this.CampoId).attr("Title", this.Mensagem);
+                });
+            } else {
+                if (resposta.Mensagem.length > 0) {
+                    alert(resposta.Mensagem);
+                }
+            }
+        })
+    };
+
+
     $scope.Buscar = function () {
         aleatorios.ajax("POST", {}, "/correia/Controller_Buscar", function (resposta) {
             $scope.lista = resposta.Data;

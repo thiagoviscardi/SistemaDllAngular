@@ -13,7 +13,7 @@ namespace Thiado.DataDll.Services
 
         public bool VerificaExistencia(int id)
         {
-            return _db.Usuarios.Count(n => n.Id == id)>0;
+            return _db.Usuarios.Count(n => n.Id == id)>0;// se for maior que zero entao é que existe um usuario com este id
 
         }
         ////////////////////////////////////METODO SALVAR//////////////////////////////// o que aconteceria se não retornasse o usuario?
@@ -55,6 +55,11 @@ namespace Thiado.DataDll.Services
                 return true;
             }
             return false;
+        }
+        public int BuscaIdUsuario(int id)// metodo para mostrar o id do usuario
+        {
+            var IdUsu = (from n in _db.Usuarios where n.Id == id select n.Id).SingleOrDefault();
+            return IdUsu;
         }
 
         public List<Entidades.UsuarioEntidade> ListarTodos()

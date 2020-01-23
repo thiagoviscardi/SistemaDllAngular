@@ -144,9 +144,10 @@ namespace TesteDeSolucao.Controllers
 
             Thiado.DataDll.Entidades.CorreiaEntidade correia = new Thiado.DataDll.Entidades.CorreiaEntidade();
 
-            if (new Thiado.DataDll.Services.CorreiaService().VerificaSeTemCorreia(correia.Id))
+            if (new Thiado.DataDll.Services.CorreiaService().VerificaSeTemCorreia(Convert.ToInt32(id)))
             {
-                jsonRetorno.Mensagem = "Deletar primeiro as correias que possuem o IdResponsavel: " + correia.IdResponsavel; //mensagem de tem que deletar primeiro a correia de id tal
+
+                jsonRetorno.Mensagem = "Deletar primeiro as correias que possuem o IdResponsavel: " + id; 
             }
             else
             {
@@ -156,6 +157,8 @@ namespace TesteDeSolucao.Controllers
 
             return Json(jsonRetorno);
         }
+
+
 
         public JsonResult CarregarRegistro(FormCollection form)//mapear e depois salvar//neste caso aqui to recebendo o id nesse FormCollection form
         {

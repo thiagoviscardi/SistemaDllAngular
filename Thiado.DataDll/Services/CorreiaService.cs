@@ -13,15 +13,16 @@ namespace Thiado.DataDll.Services
 
         public bool VerificaSeTemCorreia(int id)
         {
-            var temCorreia = (from n in _db.Correias where n.Id == id select n).SingleOrDefault(); // fazer o select no usuario que queremos
-            if (temCorreia != null)
+            if(_db.Correias.Count(n => n.IdResponsavel == id) > 0)
             {
-                return true;
+                // existe um idResponsavel com este mesmo id do usuario     return true
+            } else
+            {
+                //NÃO existe um idResponsavel com este meSMo id do usuario     return false
             }
 
-                return false;//                  CONTINUAR DAQUI!!
-           // return _db.Correias.Count(n => n.Id == id) > 0;// entender isso do banco como fazer???
-
+            return _db.Correias.Count(n => n.IdResponsavel == id) >0;
+            // conta  aquantidade de idResponsavel da correia é igual ao id da tabela usuario
         }
 
         public Entidades.CorreiaEntidade SalvarCorreia(Entidades.CorreiaEntidade correia)
@@ -48,10 +49,21 @@ namespace Thiado.DataDll.Services
             return correia;
         }
 
-     
+        public bool Deletar(int id)
+        {
+            var correiaBD = (from n in _db.Correias where n.Id == id select n).SingleOrDefault();
+            if (correiaBD != null)
+            {
+                _db.Correias.Remove(correiaBD);
+                _db.SaveChanges();
+                return true;
+            }
+            return false;
+
+        }
 
 
-        public List<Entidades.CorreiaEntidade> ListarCorreias()
+            public List<Entidades.CorreiaEntidade> ListarCorreias()
         {
             Entidades.CorreiaEntidade correiaEntidade = null;
             List<Entidades.CorreiaEntidade> lista = new List<Entidades.CorreiaEntidade>();
