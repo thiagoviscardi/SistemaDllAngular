@@ -14,6 +14,16 @@ namespace TesteDeSolucao.Controllers
             return View();
         }
 
+        public bool podeConverter ( string form, int number)
+        {
+           bool canConvert = int.TryParse(form, out number);
+            if(canConvert == true)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public JsonResult Salvar(FormCollection form)//mapear e depois salvar. o que é o form collection??? 
         {//form collection acima recebe o json e já mapeia. deix apronto pra trabalharmos com ele.
             Helper.JsonRetorno jsonRetorno = new Helper.JsonRetorno();
@@ -21,10 +31,13 @@ namespace TesteDeSolucao.Controllers
             Thiado.DataDll.Entidades.UsuarioEntidade usuario = new Thiado.DataDll.Entidades.UsuarioEntidade();
 
             int number1 = 0;
-
+            int number2 = 0;
             bool canConvert = int.TryParse(form["Id"], out number1);// isso ta pegando o id que vem como json tentando transformar em inteiro
-                                                                    //tryParse tem retorno boleano. isso quer dizer que se o id não for numérico ele nao vai converter e então o boleano será false
-
+            bool canConvertIdade = int.TryParse(form["Idade"], out number2);                                                        //tryParse tem retorno boleano. isso quer dizer que se o id não for numérico ele nao vai converter e então o boleano será false
+           
+            // bool canConv = podeConverter(int.TryParse(form["Idade"], out number1); // perguntar para o beis
+           
+            
             //////////////////////////////////////////////CRITICAS////////////////////////////////////////////////////
             if (form["Id"].Length > 0)
             {
@@ -33,6 +46,16 @@ namespace TesteDeSolucao.Controllers
                 {
                     critica.CampoId = "Id";
                     critica.Mensagem = "Id deve ser um inteiro.";
+                    jsonRetorno.Criticas.Add(critica);
+                }
+            }
+            if (form["Idade"].Length > 0)
+            {
+                var critica = new Helper.Criticas();
+                if (canConvertIdade == false)
+                {
+                    critica.CampoId = "Idade";
+                    critica.Mensagem = "Idade deve ser um inteiro.";
                     jsonRetorno.Criticas.Add(critica);
                 }
             }
@@ -80,7 +103,7 @@ namespace TesteDeSolucao.Controllers
             if (jsonRetorno.Criticas.Count > 0)
             {
                 return Json(jsonRetorno);
-            }
+            } //o retorno mesmo fora de um if else faz ele sair da função??? SIM!!!
 
             //////////////////////////////////////////////CRITICAS////////////////////////////////////////////////////
             usuario.Id = number1;
@@ -106,7 +129,7 @@ namespace TesteDeSolucao.Controllers
             jsonRetorno.Data = usuarios;
 
             System.Threading.Thread.Sleep(800);// aqui eu testo se as func de aparecer e desaparecer loading estao funcionando.
-                                                // coloco esse sleep no metodo buscar pra quando chamar pelo ajax ele fica aqui por 3 segundos!
+                                               // coloco esse sleep no metodo buscar pra quando chamar pelo ajax ele fica aqui por 3 segundos!
 
             return Json(jsonRetorno);
         }
@@ -118,7 +141,7 @@ namespace TesteDeSolucao.Controllers
             Thiado.DataDll.Services.UsuarioService usuarioService = new Thiado.DataDll.Services.UsuarioService();
             var itemNome = form["buscaNome"];//ENTENDER MELHOR!!! pega os dados do js e deixa a gente trabalhar em c#
             var itemIdade = 0;
-            
+
             if (form["buscaIdade"] == "0" || form["buscaIdade"] == null || form["buscaIdade"] == "")
             {
                 itemIdade = 0;
@@ -127,7 +150,7 @@ namespace TesteDeSolucao.Controllers
             {
                 itemIdade = Convert.ToInt32(form["buscaIdade"]);
             }
-           
+
             var usuarios = usuarioService.CarregaUsuarioNome(itemNome, itemIdade);
             jsonRetorno.Data = usuarios;
 
@@ -147,7 +170,7 @@ namespace TesteDeSolucao.Controllers
             if (new Thiado.DataDll.Services.CorreiaService().VerificaSeTemCorreia(Convert.ToInt32(id)))
             {
 
-                jsonRetorno.Mensagem = "Deletar primeiro as correias que possuem o IdResponsavel: " + id; 
+                jsonRetorno.Mensagem = "Deletar primeiro as correias que possuem o IdResponsavel: " + id;
             }
             else
             {

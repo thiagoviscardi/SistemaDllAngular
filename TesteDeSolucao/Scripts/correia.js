@@ -3,9 +3,10 @@
     $scope.BuscarCorreiaNome = function () {
         aleatorios.loading();
 
-        aleatorios.ajax("POST", { buscapeloNome: $scope.nome }, "/correia/Controller_Salvar_Correia", function (resposta) {
+        aleatorios.ajax("POST", { buscapeloNome: $scope.nome }, "/correia/BuscarCorreiaPorNome", function (resposta) {
+
             $scope.lista = resposta.Data;
-            // $scope.quantidade = resposta.Data.length;
+            $scope.quantidade = resposta.Data.length;
             $scope.$apply();// isso faz aplicar a troca ou mudança do scope
             aleatorios.fimLoading();
         })
@@ -14,6 +15,11 @@
     $scope.SalvaCorreia = function () {
 
         var json = $("FORM").serializeArray();
+
+        $("#Nome").removeClass("formErro");
+        $("#IdResponsavel").removeClass("formErro");
+        $("#Preco").removeClass("formErro");
+
         aleatorios.ajax("POST", json, "/correia/Controller_Salvar_Correia", function (resposta) {
             $scope.Buscar();
 
@@ -62,7 +68,7 @@
     $scope.Editar = function (item) {// por que não está achando os atributos do item la do html?? o idUsuario por exemplo
 
         $scope.id = item.Id;
-        //$scope.IdResponsavel = item.IdResponsavel;
+        $scope.IdResponsavel = item.IdResponsavel;
         $scope.nome = item.Nome;
         $scope.preco = item.Preco;// o primeiro preco é lá dos inputs onde via ser colocado e o segundo é do banco
 

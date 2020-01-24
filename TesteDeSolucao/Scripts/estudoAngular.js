@@ -70,18 +70,22 @@
 
     $scope.Salvar = function () {
         var json = $("FORM").serializeArray();
-
+        $("#Nome").removeClass("formErro");
+        $("#Idade").removeClass("formErro");
+        $("#Sexo").removeClass("formErro");
+        //$("#" + this.CampoId).removeClass("formErro");// por que nao ta removendo a classe?
         aleatorios.ajax("POST", json, "/EstudoAngular/salvar", function (resposta) {
 
-            if (resposta.Criticas.length > 0) {// COLOCAF ISSO SEMPR ENO SALVAR EDITAR E DELETAR
+            if (resposta.Criticas.length > 0) {// COLOCA ISSO SEMPRE NO SALVAR EDITAR E DELETAR
 
                 $(resposta.Criticas).each(function () {
                     $("#" + this.CampoId).addClass("formErro");
                     $("#" + this.CampoId).attr("Title", this.Mensagem);
                 });
             } else {
-                if (resposta.Mensagem.length > 0) {
+                if (resposta.Mensagem.length > 0) {// não está entrando neste if
                     alert(resposta.Mensagem);
+                    console.log("entrou aqui??");
                 }
             }
 
