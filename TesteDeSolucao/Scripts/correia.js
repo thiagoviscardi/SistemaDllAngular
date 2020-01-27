@@ -12,8 +12,8 @@
         })
     }
 
-    $scope.BuscarPeloUsuario = function () {
-        aleatorios.ajax("POST", { buscaPeloUsuario: $scope.BuscarPeloUsuario }, "correia/BuscaPeloUsuario", function (resposta) {
+    $scope.BuscaPeloUsuario = function () {
+        aleatorios.ajax("POST", { buscaPeloUsuario: $scope.IdResponsavel }, "/correia/BuscaPeloUsuario", function (resposta) {
             $scope.lista = resposta.Data;
             $scope.quantidade = resposta.Data.length;
             $scope.$apply();// isso faz aplicar a troca ou mudança do scope

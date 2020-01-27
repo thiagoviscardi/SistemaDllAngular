@@ -39,13 +39,25 @@ namespace TesteDeSolucao.Controllers
             Helper.JsonRetorno JsonRetorno = new Helper.JsonRetorno();
             Thiado.DataDll.Services.CorreiaService servicoCorreia = new Thiado.DataDll.Services.CorreiaService();
             
-            var NomeCorreia = form["buscapeloNome"];
+            var NomeCorreia = form["buscapeloNome"];// esse nome aqui par4ece errado
             var correia = servicoCorreia.ListarCorreiasPorNome(NomeCorreia);
             JsonRetorno.Data = correia;
             return Json(JsonRetorno);
         }
 
-       
+          public JsonResult BuscaPeloUsuario(FormCollection form)
+        {
+
+            Helper.JsonRetorno JsonRetorno = new Helper.JsonRetorno();
+            Thiado.DataDll.Services.CorreiaService servicoCorreia = new Thiado.DataDll.Services.CorreiaService();
+
+            var usuarioCorreia = Convert.ToInt32(form["buscaPeloUsuario"]);
+            var correia = servicoCorreia.ListarCorreiaPorUsuario(usuarioCorreia);
+            JsonRetorno.Data = correia;
+            return Json(JsonRetorno);
+        }
+
+
 
         public JsonResult Controller_Salvar_Correia(FormCollection form)
         {

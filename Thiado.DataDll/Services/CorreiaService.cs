@@ -111,7 +111,28 @@ namespace Thiado.DataDll.Services
             return lista;
         }
 
-      
+        
+            public List<Entidades.CorreiaEntidade> ListarCorreiaPorUsuario(int IdUsuario)
+        {
+            List<Entidades.CorreiaEntidade> lista = new List<Entidades.CorreiaEntidade>();
+            Entidades.CorreiaEntidade correia;
+            if (IdUsuario != null)
+            {
+                foreach (var item in from n in _db.Correias where n.IdResponsavel == IdUsuario select n)
+                {
+                    correia = new Entidades.CorreiaEntidade();
+                    correia.Id = item.Id;
+                    correia.Nome = item.Nome;
+                    correia.IdResponsavel = item.IdResponsavel;
+                    correia.Preco = item.Preco;
+
+
+                    lista.Add(correia);
+                }
+            }
+
+            return lista;
+        }
 
         //public Entidades.CorreiaEntidade EditarCorreia(int id)
         //{
