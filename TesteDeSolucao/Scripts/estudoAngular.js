@@ -19,7 +19,7 @@
         aleatorios.loading();
         aleatorios.ajax("POST", {}, "/EstudoAngular/buscare",
             function (resposta) { 
-
+                $scope.quantidade = resposta.Data.length;
                 $scope.lista = resposta.Data;
                 $scope.$apply();
                 aleatorios.fimLoading();
@@ -73,6 +73,7 @@
         $("#Nome").removeClass("formErro");
         $("#Idade").removeClass("formErro");
         $("#Sexo").removeClass("formErro");
+        $("#Id").removeClass("formErro");
         //$("#" + this.CampoId).removeClass("formErro");// por que nao ta removendo a classe?
         aleatorios.ajax("POST", json, "/EstudoAngular/salvar", function (resposta) {
 
@@ -80,10 +81,15 @@
 
                 $(resposta.Criticas).each(function () {
                     $("#" + this.CampoId).addClass("formErro");
-                    $("#" + this.CampoId).attr("Title", this.Mensagem);
+                    $("#" + this.CampoId).attr("Title", this.Mensagem);// isso coloca a mensagem de erro no input em questão.
+                    console.log(resposta);
+                    console.log(resposta.Mensagem);
+                    //alert(resposta.Mensagem);
+                    
                 });
+
             } else {
-                if (resposta.Mensagem.length > 0) {// não está entrando neste if
+                if (resposta.Mensagem.length > 0) {// posso apagar isso. nao ta servindo pra nada.
                     alert(resposta.Mensagem);
                     console.log("entrou aqui??");
                 }

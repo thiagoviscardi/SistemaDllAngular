@@ -13,15 +13,16 @@ namespace Thiado.DataDll.Services
 
         public bool VerificaSeTemCorreia(int id)
         {
-            if(_db.Correias.Count(n => n.IdResponsavel == id) > 0)
+            if (_db.Correias.Count(n => n.IdResponsavel == id) > 0)
             {
                 // existe um idResponsavel com este mesmo id do usuario     return true
-            } else
+            }
+            else
             {
                 //NÃO existe um idResponsavel com este meSMo id do usuario     return false
             }
 
-            return _db.Correias.Count(n => n.IdResponsavel == id) >0;
+            return _db.Correias.Count(n => n.IdResponsavel == id) > 0;
             // conta  aquantidade de idResponsavel da correia é igual ao id da tabela usuario
         }
 
@@ -32,12 +33,19 @@ namespace Thiado.DataDll.Services
             {
                 correiaDB = (from n in _db.Correias where n.Id == correia.Id select n).SingleOrDefault();// esse Correias depois do _db é a tabela do banco né?!
             }
+
+            if (correiaDB == null)
+            {
+                correia.Id = -1;
+                // gostaria de adicionar a classe helper aqui para colocar uma critica. pois se nao fizer aqui teria que chamar o banco na controller
+                return correia; //  retorna esse usuario nulo para controller
+            }
             //correiaDB.Id = correia.Id;
             correiaDB.IdResponsavel = correia.IdResponsavel;
             correiaDB.Nome = correia.Nome;
             correiaDB.Preco = correia.Preco;
 
-            if(correia.Id == 0)
+            if (correia.Id == 0)
             {
                 _db.Correias.Add(correiaDB);
             }
@@ -63,7 +71,7 @@ namespace Thiado.DataDll.Services
         }
 
 
-            public List<Entidades.CorreiaEntidade> ListarCorreias()
+        public List<Entidades.CorreiaEntidade> ListarCorreias()
         {
             Entidades.CorreiaEntidade correiaEntidade = null;
             List<Entidades.CorreiaEntidade> lista = new List<Entidades.CorreiaEntidade>();
@@ -80,11 +88,12 @@ namespace Thiado.DataDll.Services
             return lista;
         }
 
+
         public List<Entidades.CorreiaEntidade> ListarCorreiasPorNome(string nome)
         {
             List<Entidades.CorreiaEntidade> lista = new List<Entidades.CorreiaEntidade>();
             Entidades.CorreiaEntidade correia;
-            if(nome!=null && nome!="")
+            if (nome != null && nome != "")
             {
                 foreach (var item in from n in _db.Correias where n.Nome.Contains(nome) select n)
                 {
@@ -93,7 +102,7 @@ namespace Thiado.DataDll.Services
                     correia.Nome = item.Nome;
                     correia.IdResponsavel = item.IdResponsavel;
                     correia.Preco = item.Preco;
-                   
+
 
                     lista.Add(correia);
                 }
@@ -101,6 +110,8 @@ namespace Thiado.DataDll.Services
 
             return lista;
         }
+
+      
 
         //public Entidades.CorreiaEntidade EditarCorreia(int id)
         //{

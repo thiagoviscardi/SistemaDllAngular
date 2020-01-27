@@ -47,7 +47,9 @@ namespace TesteDeSolucao.Controllers
                     critica.CampoId = "Id";
                     critica.Mensagem = "Id deve ser um inteiro.";
                     jsonRetorno.Criticas.Add(critica);
-                }
+                } // criar outro if. se o id ainda não existe no banco apontar o erro
+                
+                    //foreach (var item in from n in _db.Correias where n.Nome.Contains(nome) select n)
             }
             if (form["Idade"].Length > 0)
             {
@@ -115,7 +117,18 @@ namespace TesteDeSolucao.Controllers
             Thiado.DataDll.Services.UsuarioService service = new Thiado.DataDll.Services.UsuarioService();
 
             service.Salvar(usuario);
+            if(usuario.Id == -1)
+            {
+                var critica = new Helper.Criticas();
+                critica.CampoId = "Id";
+                critica.Mensagem = "Informe um id válido";
+                jsonRetorno.Mensagem = "Informe um id válido!";
+                jsonRetorno.Criticas.Add(critica);
 
+                critica.CampoId = "Id";
+               
+               
+            }
             return Json(jsonRetorno);
 
         }

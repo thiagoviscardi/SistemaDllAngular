@@ -45,7 +45,7 @@ namespace TesteDeSolucao.Controllers
             return Json(JsonRetorno);
         }
 
-
+       
 
         public JsonResult Controller_Salvar_Correia(FormCollection form)
         {
@@ -54,8 +54,13 @@ namespace TesteDeSolucao.Controllers
             Thiado.DataDll.Entidades.CorreiaEntidade correia = new Thiado.DataDll.Entidades.CorreiaEntidade();
 
             int number1 = 0;
+            int number2 = 0;
+            int number3= 0;
 
-            bool canConvert = int.TryParse(form["Id"], out number1);
+            bool canConvert = int.TryParse(form["Id"], out number1);//tryParse tem retorno boleano. isso quer dizer que se o id não for numérico ele nao vai converter e então o boleano será false
+            bool canConvertIdade = int.TryParse(form["Preco"], out number2);
+            bool canConvertIdResponsavel = int.TryParse(form["IdResponsavel"], out number3);
+
 
             //////////////////////////////////////////////CRITICAS////////////////////////////////////////////////////
             //////////////////////////////////////////////CRITICAS////////////////////////////////////////////////////
@@ -66,6 +71,24 @@ namespace TesteDeSolucao.Controllers
 
                 critica.CampoId = "IdResponsavel";
                 critica.Mensagem = "Informe um IdResponsavel.";
+                JsonRetorno.Criticas.Add(critica);
+            }
+
+            if (string.IsNullOrEmpty(form["Preco"]))
+            {
+                var critica = new Helper.Criticas();
+
+                critica.CampoId = "Preco";
+                critica.Mensagem = "Informe um Preco.";
+                JsonRetorno.Criticas.Add(critica);
+            }
+
+            if (string.IsNullOrEmpty(form["Nome"]))
+            {
+                var critica = new Helper.Criticas();
+
+                critica.CampoId = "Nome";
+                critica.Mensagem = "Informe um nome.";
                 JsonRetorno.Criticas.Add(critica);
             }
 
@@ -80,6 +103,27 @@ namespace TesteDeSolucao.Controllers
                 }
             }
 
+            if (form["IdResponsavel"].Length > 0)
+            {
+                var critica = new Helper.Criticas();
+                if (canConvertIdResponsavel == false)
+                {
+                    critica.CampoId = "IdResponsavel";
+                    critica.Mensagem = "IdResponsavel deve ser um inteiro.";
+                    JsonRetorno.Criticas.Add(critica);
+                }
+            }
+
+            if (form["Preco"].Length > 0)
+            {
+                var critica = new Helper.Criticas();
+                if (canConvertIdade == false)
+                {
+                    critica.CampoId = "Preco";
+                    critica.Mensagem = "Preco deve ser um inteiro.";
+                    JsonRetorno.Criticas.Add(critica);
+                }
+            }
 
             if (JsonRetorno.Criticas.Count > 0)// aqui sai da funcao se houverem criticas
             {
@@ -113,7 +157,20 @@ namespace TesteDeSolucao.Controllers
                 JsonRetorno.Criticas.Add(new Helper.Criticas() { CampoId = "IdResponsavel", Mensagem = "usuario inexistente" });
                 //JsonRetorno.Mensagem="usuario inexistente";
             }
-            
+
+            if (correia.Id == -1)
+            {
+                var critica = new Helper.Criticas();
+                critica.CampoId = "Id";
+                critica.Mensagem = "Informe um id válido";
+                JsonRetorno.Mensagem = "Informe um id válido!";
+                JsonRetorno.Criticas.Add(critica);
+
+                critica.CampoId = "Id";
+
+
+            }
+
             return Json(JsonRetorno);
         }
 

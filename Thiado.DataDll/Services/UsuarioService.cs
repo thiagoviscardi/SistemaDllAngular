@@ -25,6 +25,12 @@ namespace Thiado.DataDll.Services
             {
                 usuarioDB = (from n in _db.Usuarios where n.Id == usuario.Id select n).SingleOrDefault();// seleciona um usuario ou retorna null?
             }
+            if (usuarioDB == null)
+            {
+                usuario.Id = -1;
+                // gostaria de adicionar a classe helper aqui para colocar uma critica. pois se nao fizer aqui teria que chamar o banco na controller
+                return usuario; //  retorna esse usuario nulo para controller
+            }
             //usuarioDB.Id = usuario.Id;
             usuarioDB.Nome = usuario.Nome;
 
