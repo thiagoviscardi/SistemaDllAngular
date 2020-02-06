@@ -171,6 +171,7 @@
     <Compile Include="Controllers\EstudoAngularController.cs" />
     <Compile Include="Controllers\EstudoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TamborController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\WebServiceController.cs" />
     <Compile Include="Global.asax.cs">
@@ -222,6 +223,7 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\tambor.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -239,6 +241,7 @@
     <Content Include="Views\Estudo\Index.cshtml" />
     <Content Include="Views\EstudoAngular\Index.cshtml" />
     <Content Include="Views\Correia\Index.cshtml" />
+    <Content Include="Views\Tambor\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -5,9 +5,12 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="22641b3a8c5e43bdb713938b7b1cce26" Name="Diagram1">
-        <EntityTypeShape EntityType="TreinamentoThiagoModel.Correias" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="TreinamentoThiagoModel.Usuarios" Width="1.5" PointX="0.75" PointY="0.875" />
+        <EntityTypeShape EntityType="TreinamentoThiagoModel.Correias" Width="1.5" PointX="3" PointY="1.125" />
+        <EntityTypeShape EntityType="TreinamentoThiagoModel.Tambor" Width="1.5" PointX="3" PointY="3.75" />
+        <EntityTypeShape EntityType="TreinamentoThiagoModel.Usuarios" Width="1.5" PointX="0.75" PointY="2.25" />
         <AssociationConnector Association="TreinamentoThiagoModel.FK_Correias_Usuarios" />
+        <AssociationConnector Association="TreinamentoThiagoModel.FK_Tambor_Usuarios" />
+        <AssociationConnector Association="TreinamentoThiagoModel.FK_Tambor_Usuarios1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

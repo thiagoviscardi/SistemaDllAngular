@@ -9,6 +9,15 @@
     <Property Name="Preco" Type="real" Nullable="false" />
     <Property Name="IdResponsavel" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="Tambor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="50" />
+    <Property Name="Preco" Type="real" />
+    <Property Name="IdResponsavel" Type="int" />
+  </EntityType>
   <EntityType Name="Usuarios">
     <Key>
       <PropertyRef Name="Id" />
@@ -31,12 +40,45 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Tambor_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Tambor" Type="Self.Tambor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tambor">
+        <PropertyRef Name="IdResponsavel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tambor_Usuarios1">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Tambor" Type="Self.Tambor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tambor">
+        <PropertyRef Name="IdResponsavel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="TreinamentoThiagoModelStoreContainer">
     <EntitySet Name="Correias" EntityType="Self.Correias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tambor" EntityType="Self.Tambor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Correias_Usuarios" Association="Self.FK_Correias_Usuarios">
       <End Role="Usuarios" EntitySet="Usuarios" />
       <End Role="Correias" EntitySet="Correias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tambor_Usuarios" Association="Self.FK_Tambor_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Tambor" EntitySet="Tambor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tambor_Usuarios1" Association="Self.FK_Tambor_Usuarios1">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Tambor" EntitySet="Tambor" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

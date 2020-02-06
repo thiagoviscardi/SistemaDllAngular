@@ -14,6 +14,15 @@
           <Property Name="Preco" Type="real" Nullable="false" />
           <Property Name="IdResponsavel" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Tambor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" />
+          <Property Name="Preco" Type="real" />
+          <Property Name="IdResponsavel" Type="int" />
+        </EntityType>
         <EntityType Name="Usuarios">
           <Key>
             <PropertyRef Name="Id" />
@@ -36,12 +45,45 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Tambor_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Tambor" Type="Self.Tambor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tambor">
+              <PropertyRef Name="IdResponsavel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tambor_Usuarios1">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Tambor" Type="Self.Tambor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tambor">
+              <PropertyRef Name="IdResponsavel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="TreinamentoThiagoModelStoreContainer">
           <EntitySet Name="Correias" EntityType="Self.Correias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tambor" EntityType="Self.Tambor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Correias_Usuarios" Association="Self.FK_Correias_Usuarios">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="Correias" EntitySet="Correias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tambor_Usuarios" Association="Self.FK_Tambor_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Tambor" EntitySet="Tambor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tambor_Usuarios1" Association="Self.FK_Tambor_Usuarios1">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Tambor" EntitySet="Tambor" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -50,10 +92,19 @@
       <Schema Namespace="TreinamentoThiagoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="TreinamentoThiagoEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Correias" EntityType="TreinamentoThiagoModel.Correias" />
+          <EntitySet Name="Tambor" EntityType="TreinamentoThiagoModel.Tambor" />
           <EntitySet Name="Usuarios" EntityType="TreinamentoThiagoModel.Usuarios" />
           <AssociationSet Name="FK_Correias_Usuarios" Association="TreinamentoThiagoModel.FK_Correias_Usuarios">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="Correias" EntitySet="Correias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tambor_Usuarios" Association="TreinamentoThiagoModel.FK_Tambor_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Tambor" EntitySet="Tambor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tambor_Usuarios1" Association="TreinamentoThiagoModel.FK_Tambor_Usuarios1">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Tambor" EntitySet="Tambor" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Correias">
@@ -66,6 +117,17 @@
           <Property Name="IdResponsavel" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Usuarios" Relationship="TreinamentoThiagoModel.FK_Correias_Usuarios" FromRole="Correias" ToRole="Usuarios" />
         </EntityType>
+        <EntityType Name="Tambor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Preco" Type="Single" />
+          <Property Name="IdResponsavel" Type="Int32" />
+          <NavigationProperty Name="Usuarios" Relationship="TreinamentoThiagoModel.FK_Tambor_Usuarios" FromRole="Tambor" ToRole="Usuarios" />
+          <NavigationProperty Name="Usuarios1" Relationship="TreinamentoThiagoModel.FK_Tambor_Usuarios1" FromRole="Tambor" ToRole="Usuarios" />
+        </EntityType>
         <EntityType Name="Usuarios">
           <Key>
             <PropertyRef Name="Id" />
@@ -76,6 +138,8 @@
           <Property Name="Sexo" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="Ativo" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Correias" Relationship="TreinamentoThiagoModel.FK_Correias_Usuarios" FromRole="Usuarios" ToRole="Correias" />
+          <NavigationProperty Name="Tambor" Relationship="TreinamentoThiagoModel.FK_Tambor_Usuarios" FromRole="Usuarios" ToRole="Tambor" />
+          <NavigationProperty Name="Tambor1" Relationship="TreinamentoThiagoModel.FK_Tambor_Usuarios1" FromRole="Usuarios" ToRole="Tambor" />
         </EntityType>
         <Association Name="FK_Correias_Usuarios">
           <End Type="TreinamentoThiagoModel.Usuarios" Role="Usuarios" Multiplicity="1" />
@@ -89,6 +153,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Tambor_Usuarios">
+          <End Type="TreinamentoThiagoModel.Usuarios" Role="Usuarios" Multiplicity="0..1" />
+          <End Type="TreinamentoThiagoModel.Tambor" Role="Tambor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tambor">
+              <PropertyRef Name="IdResponsavel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tambor_Usuarios1">
+          <End Type="TreinamentoThiagoModel.Usuarios" Role="Usuarios" Multiplicity="0..1" />
+          <End Type="TreinamentoThiagoModel.Tambor" Role="Tambor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tambor">
+              <PropertyRef Name="IdResponsavel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -98,6 +186,16 @@
           <EntitySetMapping Name="Correias">
             <EntityTypeMapping TypeName="TreinamentoThiagoModel.Correias">
               <MappingFragment StoreEntitySet="Correias">
+                <ScalarProperty Name="IdResponsavel" ColumnName="IdResponsavel" />
+                <ScalarProperty Name="Preco" ColumnName="Preco" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tambor">
+            <EntityTypeMapping TypeName="TreinamentoThiagoModel.Tambor">
+              <MappingFragment StoreEntitySet="Tambor">
                 <ScalarProperty Name="IdResponsavel" ColumnName="IdResponsavel" />
                 <ScalarProperty Name="Preco" ColumnName="Preco" />
                 <ScalarProperty Name="Nome" ColumnName="Nome" />

@@ -18,6 +18,8 @@ namespace Thiado.DataDll.Model
         public Usuarios()
         {
             this.Correias = new HashSet<Correias>();
+            this.Tambor = new HashSet<Tambor>();
+            this.Tambor1 = new HashSet<Tambor>();
         }
     
         public int Id { get; set; }
@@ -28,5 +30,9 @@ namespace Thiado.DataDll.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Correias> Correias { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tambor> Tambor { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tambor> Tambor1 { get; set; }
     }
 }

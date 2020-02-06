@@ -11,6 +11,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Tambor">
+      <EntityTypeMapping TypeName="TreinamentoThiagoModel.Tambor">
+        <MappingFragment StoreEntitySet="Tambor">
+          <ScalarProperty Name="IdResponsavel" ColumnName="IdResponsavel" />
+          <ScalarProperty Name="Preco" ColumnName="Preco" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Usuarios">
       <EntityTypeMapping TypeName="TreinamentoThiagoModel.Usuarios">
         <MappingFragment StoreEntitySet="Usuarios">

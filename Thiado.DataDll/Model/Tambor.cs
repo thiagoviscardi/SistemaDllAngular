@@ -12,7 +12,7 @@ namespace Thiado.DataDll.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Correias
+    public partial class Tambor
     {
         public int Id { get; set; }
         public string Nome { get; set; }
@@ -20,5 +20,6 @@ namespace Thiado.DataDll.Model
         public int IdResponsavel { get; set; }
     
         public virtual Usuarios Usuarios { get; set; }
+        public virtual Usuarios Usuarios1 { get; set; }
     }
 }
