@@ -23,7 +23,7 @@ namespace TesteDeSolucao.Helper
     public class Criticas
     {
         public string Mensagem { get; set; }
-        public string CampoId { get; set; }
+        public string CampoId { get; set; } // o que isso pega msm?
     }
 
 }

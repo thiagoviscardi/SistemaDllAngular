@@ -64,6 +64,16 @@ namespace Thiado.DataDll.Services
             return lista;
         }
 
+        public bool deletaTambor(int id)
+        {
+            //Entidades.TamborEntidade tamborDB = new Entidades.TamborEntidade();
+           Entidades.TamborEntidade tambor = new Entidades.TamborEntidade();
+            var tamborDB = (from n in _db.Tambor where n.Id == id select n).SingleOrDefault();
+            _db.Tambor.Remove(tamborDB);
+            _db.SaveChanges();
+            return true;
+        }
+
 
         //{
         //    Model.TreinamentoThiagoEntities1 _db = new Model.TreinamentoThiagoEntities1();

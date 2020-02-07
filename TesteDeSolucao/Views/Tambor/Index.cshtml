@@ -13,13 +13,13 @@
     <div class="tabelaClientes">
         <form>
             <input class="inputsCadastro1" type="text" name="Id" id="Id" ng-model="Id" /> Id Tambor<br />
-            <input class="inputsCadastro1" type="text" name="Nome" id="Nome" ng-model="Nome" /> Nome Tambor<br />
+            <input class="inputsCadastro1" type="text" name="Nome" id="Nome" ng-model="Nome" {{nome}} /> Nome Tambor<br />
             <input class="inputsCadastro1" type="text" name="IdResponsavel" id="IdResponsavel" ng-model="IdResponsavel"/> Id Responsavel<br />
             <input class="inputsCadastro1" type="text" name="Preco" id="Preco" ng-model="Preco" /> Preço<br />
         </form>
     </div>
     <div>
-        <input class="inputsCadastro" type="button" value="Quantidade">
+        <input class="inputsCadastro" type="button" value="Quantidade" ng-click="Quantidade()">
         <input class="inputsCadastro" type="button" value="Salva com Ajax" ng-click="SalvarTambor()">
         <input class="inputsCadastro" type="button" value="Buscar Tambor" ng-click="BuscarTodosTambores()">
         <input class="inputsCadastro" type="button" value="Busque por nome" />
@@ -32,7 +32,7 @@
     <div class="tabelaClientes">
 
 
-        Quantidade :
+        Quantidade : {{quantidade}}
         <table id="tblLista" border="1">
             <thead>
                 <tr>
@@ -47,6 +47,16 @@
             <tbody>
 
                 <!--colocar aqui a lista que chegou. usar tipo um foreach mas do angular-->
+                <tr ng-repeat="item in lista">
+                    <td><a ng-click="EditarTambor(item)" href="javascript:;">Editar</a></td>
+                    <td><a ng-click="Deletar(item.Id)" href="javascript:;">Deletar</a></td>
+                 
+                    <td>{{item.Id}}</td>
+                    <td>{{item.Nome}}</td>
+                    <td>{{item.IdResponsavel}}</td>
+                    <td>{{item.Preco}}</td>
+                   
+                </tr>
 
             </tbody><!--Está inserindo aqui dentro linhas que vem do estudo.js. pelo js-->
         </table>
