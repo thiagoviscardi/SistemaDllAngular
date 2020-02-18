@@ -5,7 +5,6 @@
     $scope.SalvarTambor = function () {
 
         aleatorios.loading();
-
         var json = $("FORM").serializeArray();
 
         $("#Nome").removeClass("formErro");
@@ -17,7 +16,7 @@
 
         aleatorios.ajax("POST", json, "Tambor/SalvarTambor", function (resposta) {
             console.log(resposta);
-
+            $scope.BuscarTodosTambores();
             if (resposta.Criticas.length > 0) {// COLOCAF ISSO SEMPR ENO SALVAR EDITAR E DELETAR
 
                 $(resposta.Criticas).each(function () {
@@ -65,8 +64,30 @@
         })
     }
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    $scope.EditarTambor = function (item) {
+        $scope.Id = item.Id; // esse item.id vem de onde mesmo? acho que vem la do foreach do html em angularjs
+        $scope.IdResponsavel = item.IdResponsavel;
+        $scope.Nome = item.Nome;
+        $scope.Preco = item.Preco;
+    }
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    $scope.BuscaNomeTambor = function () {
+        aleatorios.ajax("POST", { nomeTambor: $scope.Nome }, "Tambor/BuscatamborNomeController", function (resposta) {
+ 
+            $scope.lista = resposta.Data;
+            $scope.$apply();
+        })
+    }
+
+    $scope.BuscaTamborUsuario = function () {
+        aleatorios.ajax("POST", { IdUsuTambor: $scope.IdResponsavel }, "Tambor/BuscaTamborUsuarioController", function (resposta) {
+            console.log(resposta);
+            $scope.lista = resposta.Data;
+            $scope.$apply();
+        })
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     
 })

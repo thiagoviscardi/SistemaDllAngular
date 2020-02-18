@@ -14,6 +14,26 @@ namespace TesteDeSolucao.Controllers
             return View();
         }
 
+        public JsonResult BuscatamborNomeController (FormCollection form)
+        {
+            Helper.JsonRetorno JsonRetorno = new Helper.JsonRetorno();
+            Thiado.DataDll.Services.TamborService servico = new Thiado.DataDll.Services.TamborService();
+            var nomeTambor = form["nomeTambor"];
+            var tambor = servico.buscaTamborNome(nomeTambor);
+            JsonRetorno.Data = tambor;
+            return Json(JsonRetorno);
+        }
+
+        public JsonResult BuscaTamborUsuarioController (FormCollection form)
+        {
+            Helper.JsonRetorno JsonRetorno = new Helper.JsonRetorno();
+            Thiado.DataDll.Services.TamborService Servico = new Thiado.DataDll.Services.TamborService();
+            var idUsuario = Convert.ToInt32(form["IdUsuTambor"]);
+            var Tambor = Servico.BuscaTamborUsuarios(idUsuario);
+            JsonRetorno.Data = Tambor;
+            return Json(JsonRetorno);
+        }
+
         public JsonResult BuscaTambor(FormCollection form)
         {
             Helper.JsonRetorno JsonRetorno = new Helper.JsonRetorno();
@@ -158,10 +178,7 @@ namespace TesteDeSolucao.Controllers
                 JsonRetorno.Criticas.Add(critica);
 
                 critica.CampoId = "Id";
-
-
             }
-
             return Json(JsonRetorno);
         }
 

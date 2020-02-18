@@ -45,6 +45,47 @@ namespace Thiado.DataDll.Services
             return tambor;
         }
 
+        public List<Entidades.TamborEntidade> buscaTamborNome(string nome) {
+            List<Entidades.TamborEntidade> lista = new List<Entidades.TamborEntidade>();
+            Entidades.TamborEntidade DBtambor;
+
+            if (nome != null && nome != "")
+            {
+
+                foreach (var item in from n in _db.Tambor where n.Nome.Contains(nome) select n)
+                {
+                    DBtambor = new Entidades.TamborEntidade();
+                    DBtambor.Id = item.Id;
+                    DBtambor.Nome = item.Nome;
+                    DBtambor.IdResponsavel = item.IdResponsavel;
+                    DBtambor.Preco = item.Preco;
+                    lista.Add(DBtambor);
+                }
+            }
+            return lista;
+        }
+
+        public List<Entidades.TamborEntidade> BuscaTamborUsuarios(int idUsuario)
+        {
+            List<Entidades.TamborEntidade> lista = new List<Entidades.TamborEntidade>();
+            Entidades.TamborEntidade DBtambor;
+            if (idUsuario != null)
+            {
+
+                foreach (var item in from n in _db.Tambor where n.IdResponsavel == idUsuario select n)
+                {
+                    DBtambor = new Entidades.TamborEntidade();
+                    DBtambor.Id = item.Id;
+                    DBtambor.Nome = item.Nome;
+                    DBtambor.IdResponsavel = item.IdResponsavel;
+                    DBtambor.Preco = item.Preco;
+                    lista.Add(DBtambor);
+                }
+            }
+            return lista;
+        }
+
+
         public List<Entidades.TamborEntidade> Buscar ()
 
         {

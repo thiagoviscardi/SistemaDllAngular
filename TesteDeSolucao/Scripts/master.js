@@ -1,8 +1,8 @@
 ﻿var APP = angular.module("PROJETOTESTE", []);
 
 
-var master = {
-    MensagemPadrao: function (msg) {
-        alert(msg);
-    }
-};
+//var master = {
+//    MensagemPadrao: function (msg) {
+//        alert(msg);
+//    }
+//};
