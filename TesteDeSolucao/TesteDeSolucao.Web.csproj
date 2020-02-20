@@ -281,6 +281,13 @@
       <Project>{f27d542e-2996-4e3e-98e9-c20ab9b6ba1d}</Project>
       <Name>Thiado.DataDll</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TMSAMongo\TesteMongo\TesteMongo.csproj">
+      <Project>{8ae292cd-3c0b-47c9-a8ad-36eeae8901e1}</Project>
+      <Name>TesteMongo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

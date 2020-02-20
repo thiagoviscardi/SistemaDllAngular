@@ -58,6 +58,14 @@ namespace TesteDeSolucao.Controllers
 
         public JsonResult SalvarTambor(FormCollection form)
         {
+
+            //Helper.JsonRetorno JsonRetorno = new Helper.JsonRetorno();
+            //TesteMongo.tamborzao tamborzao = new TesteMongo.tamborzao();
+            //tamborzao.Nome = "TamborNome";
+            // TesteMongo.
+            //TMSAMongo.Services.MongoService servico = new TMSAMongo.Services.MongoService();
+            //return Json(JsonRetorno);
+
             Helper.JsonRetorno JsonRetorno = new Helper.JsonRetorno();
             Thiado.DataDll.Services.TamborService servico = new Thiado.DataDll.Services.TamborService();
             Thiado.DataDll.Entidades.TamborEntidade tambor = new Thiado.DataDll.Entidades.TamborEntidade();

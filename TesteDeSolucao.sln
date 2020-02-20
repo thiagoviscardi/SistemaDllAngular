@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thiado.DataDll", "Thiado.Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppDesktop01", "AppDesktop01\AppDesktop01.csproj", "{0908A3C5-5E5A-4B0E-A6D2-F5246A10D8E8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteMongo", "TMSAMongo\TesteMongo\TesteMongo.csproj", "{8AE292CD-3C0B-47C9-A8AD-36EEAE8901E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,32 +41,15 @@ Global
 		{0908A3C5-5E5A-4B0E-A6D2-F5246A10D8E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0908A3C5-5E5A-4B0E-A6D2-F5246A10D8E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0908A3C5-5E5A-4B0E-A6D2-F5246A10D8E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AE292CD-3C0B-47C9-A8AD-36EEAE8901E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AE292CD-3C0B-47C9-A8AD-36EEAE8901E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AE292CD-3C0B-47C9-A8AD-36EEAE8901E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AE292CD-3C0B-47C9-A8AD-36EEAE8901E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {43871415-10C6-4E50-A8A8-A06EA9572BD4}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 6
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://dev.azure.com/aloacard
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = AppDesktop01\\AppDesktop01.csproj
-		SccProjectName1 = AppDesktop01
-		SccLocalPath1 = AppDesktop01
-		SccProjectUniqueName2 = ProjetoTeste\\ProjetoTeste.csproj
-		SccProjectName2 = ProjetoTeste
-		SccLocalPath2 = ProjetoTeste
-		SccProjectUniqueName3 = ServicoWindows1\\ServicoWindows1.csproj
-		SccProjectName3 = ServicoWindows1
-		SccLocalPath3 = ServicoWindows1
-		SccProjectUniqueName4 = TesteDeSolucao\\TesteDeSolucao.Web.csproj
-		SccProjectName4 = TesteDeSolucao
-		SccLocalPath4 = TesteDeSolucao
-		SccProjectUniqueName5 = Thiado.DataDll\\Thiado.DataDll.csproj
-		SccProjectName5 = Thiado.DataDll
-		SccLocalPath5 = Thiado.DataDll
 	EndGlobalSection
 EndGlobal
