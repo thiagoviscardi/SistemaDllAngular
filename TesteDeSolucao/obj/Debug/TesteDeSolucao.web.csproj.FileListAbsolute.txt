@@ -86,3 +86,17 @@ C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\TesteDeSolucao\bin\Thiado.DataD
 C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\TesteDeSolucao\bin\EntityFramework.xml
 C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\TesteDeSolucao\bin\EntityFramework.SqlServer.dll
 C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\TesteDeSolucao\bin\EntityFramework.SqlServer.xml
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\TesteDeSolucao\bin\Crc32C.NET.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\TesteDeSolucao\bin\DnsClient.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\TesteDeSolucao\bin\MongoDB.Bson.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\TesteDeSolucao\bin\MongoDB.Driver.Core.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\TesteDeSolucao\bin\MongoDB.Driver.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\TesteDeSolucao\bin\MongoDB.Libmongocrypt.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\TesteDeSolucao\bin\SharpCompress.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\TesteDeSolucao\bin\Snappy.NET.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\TesteDeSolucao\bin\System.Buffers.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\TesteDeSolucao\bin\TesteMongo.exe
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\TesteDeSolucao\bin\TMSAMongo.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\TesteDeSolucao\bin\TesteMongo.pdb
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\TesteDeSolucao\bin\TesteMongo.exe.config
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\TesteDeSolucao\bin\TMSAMongo.pdb

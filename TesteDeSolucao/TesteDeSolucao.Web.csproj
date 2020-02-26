@@ -50,6 +50,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Crc32C.NET">
+      <HintPath>..\TMSAMongo\TesteMongo\bin\Debug\Crc32C.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="DnsClient">
+      <HintPath>..\TMSAMongo\TesteMongo\bin\Debug\DnsClient.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -57,8 +63,30 @@
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\TMSAMongo\TesteMongo\bin\Debug\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\TMSAMongo\TesteMongo\bin\Debug\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core">
+      <HintPath>..\TMSAMongo\TesteMongo\bin\Debug\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Libmongocrypt">
+      <HintPath>..\TMSAMongo\TesteMongo\bin\Debug\MongoDB.Libmongocrypt.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationFramework" />
+    <Reference Include="SharpCompress">
+      <HintPath>..\TMSAMongo\TesteMongo\bin\Debug\SharpCompress.dll</HintPath>
+    </Reference>
+    <Reference Include="Snappy.NET">
+      <HintPath>..\TMSAMongo\TesteMongo\bin\Debug\Snappy.NET.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\TMSAMongo\TesteMongo\bin\Debug\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.Entity" />
@@ -120,6 +148,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="TMSAMongo">
+      <HintPath>..\TMSAMongo\TesteMongo\bin\Debug\TMSAMongo.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -171,6 +202,7 @@
     <Compile Include="Controllers\EstudoAngularController.cs" />
     <Compile Include="Controllers\EstudoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MongoUsuarioController.cs" />
     <Compile Include="Controllers\TamborController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\WebServiceController.cs" />
@@ -223,6 +255,7 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\MongoUsuario.js" />
     <Content Include="Scripts\tambor.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -242,6 +275,7 @@
     <Content Include="Views\EstudoAngular\Index.cshtml" />
     <Content Include="Views\Correia\Index.cshtml" />
     <Content Include="Views\Tambor\Index.cshtml" />
+    <Content Include="Views\MongoUsuario\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

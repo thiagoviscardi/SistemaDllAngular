@@ -9,3 +9,14 @@ C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\bin\Debug\Entity
 C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\bin\Debug\EntityFramework.SqlServer.xml
 C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\obj\Debug\Thiado.DataDll.csproj.CopyComplete
 C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\obj\Debug\Thiado.DataDll.csprojAssemblyReference.cache
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\bin\Debug\Crc32C.NET.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\bin\Debug\DnsClient.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\bin\Debug\MongoDB.Bson.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\bin\Debug\MongoDB.Driver.Core.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\bin\Debug\MongoDB.Driver.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\bin\Debug\MongoDB.Libmongocrypt.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\bin\Debug\SharpCompress.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\bin\Debug\Snappy.NET.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\bin\Debug\System.Buffers.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\bin\Debug\TMSAMongo.dll
+C:\ProjetosThiago\Thiago\Projeto1\TesteDeSolucao\Thiado.DataDll\bin\Debug\TMSAMongo.pdb
