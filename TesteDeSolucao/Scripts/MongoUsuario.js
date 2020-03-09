@@ -4,8 +4,10 @@
     $scope.BuscarPorNome = function () {// poderia passar como parametro o nome e o buscaNome:nome
 
         aleatorios.loading();
-        aleatorios.ajax("POST", { buscaNome: $scope.nome, buscaIdade: $scope.idade }, "/EstudoAngular/BuscarPorNome",
-            function (resposta) { //esse parametro de resposta tras a resposta do servidor. é como um return resposta
+        console.log($scope.Filtro);
+        aleatorios.ajax("POST", $scope.Filtro, "/MongoUsuario/BuscarPorNomeMongo", /*usando $scope.Filtro, ele busca no html o Filtro.nome e etc. ou seja busca um objeto, por isso funciona la na controller, pois ela ta esperando
+* um objeto. se eu passasse somente o scope.nome ele enviaria uma string e não conseguiria pegar na controle por estar esperando um objeto*/
+            function (resposta) { 
 
                 $scope.lista = resposta.Data;
                 $scope.quantidade = resposta.Data.length;
@@ -20,7 +22,6 @@
         aleatorios.ajax("POST", {}, "/MongoUsuario/BuscarTodosMongo",
             function (resposta) {
                 console.log(resposta.Data);
-                //$scope.quantidade = resposta.Data.length;
                 $scope.lista = resposta.Data;
                 $scope.$apply();
                 aleatorios.fimLoading();

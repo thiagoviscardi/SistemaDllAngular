@@ -11,17 +11,17 @@
     </div>
     <div class="tabelaClientes">
         <form>
-            <input class="inputsCadastro1" type="text" name="Id" id="Id" ng-model="id" /> Id<br />
-            <input class="inputsCadastro1" type="text" name="Nome" id="Nome" ng-model="nome" /> Nome<br />
-            <input class="inputsCadastro1" type="text" name="Idade" id="Idade" ng-model="idade" /> Idade<br />
-            <input class="inputsCadastro1" type="text" name="Sexo" id="Sexo" ng-model="sexo" /> Sexo<br />
+            <input class="inputsCadastro1" type="text" name="Id" id="Id" ng-model="Filtro.Id" /> Id<br />
+            <input class="inputsCadastro1" type="text" name="Nome" id="Nome" ng-model="Filtro.Nome" /> Nome<br />
+            <input class="inputsCadastro1" type="text" name="Idade" id="Idade" ng-model="Filtro.Idade" /> Idade<br />
+            <input class="inputsCadastro1" type="text" name="Sexo" id="Sexo" ng-model="Filtro.Sexo" /> Sexo<br />
         </form>
     </div>
     <div>
         <input class="inputsCadastro" type="button" value="Quantidade" ng-click="Quantidade()">
         <input class="inputsCadastro" type="button" value="Salva com Ajax" ng-click="Salvar()">
         <input class="inputsCadastro" type="button" ng-click="Buscar()" value="Buscar">
-        <input class="inputsCadastro" type="button" value="Busque por nome" ng-click="BuscarPorNome()" />
+        <input class="inputsCadastro" type="button" value="Busca com filtro" ng-click="BuscarPorNome()" />
     </div>
     <div id="loading">
         Loading...<br />
