@@ -22,7 +22,4 @@
         document.getElementById("loading").style.display = "none";
     },
 
-    calculaSomaIdade: function () {
-    //tentar usar reduce
-    }
 };

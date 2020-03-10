@@ -30,6 +30,7 @@
             });
     };
 
+
     $scope.Editar = function (item) {// este item vem co item do foreach do angular la no html
         
 
