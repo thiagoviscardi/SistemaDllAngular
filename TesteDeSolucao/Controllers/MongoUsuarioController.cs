@@ -22,6 +22,9 @@ namespace TesteDeSolucao.Controllers
             Helper.JsonRetorno JsonRetorno = new Helper.JsonRetorno();
             TMSAMongo.Services.MongoService mongoService = new TMSAMongo.Services.MongoService();
             Thiado.DataDll.Entidades.MongoUsuarioEntidade mongoDB = new Thiado.DataDll.Entidades.MongoUsuarioEntidade();
+
+
+            mongoDB.Id = Convert.ToInt32(form["Id"]);
             mongoDB.Nome = form["Nome"];
             mongoDB.Idade = Convert.ToInt32(form["Idade"]);
             mongoDB.Sexo = form["Sexo"];
@@ -70,6 +73,15 @@ namespace TesteDeSolucao.Controllers
                 {
                     ListaFiltros.Add(Builders<Thiado.DataDll.Entidades.MongoUsuarioEntidade>.Filter.Regex(e => e.Nome, BsonRegularExpression.Create(new Regex($".*{buscaNome.Nome}.*", RegexOptions.IgnoreCase))));
                 }
+                if (!string.IsNullOrEmpty(buscaNome.Sexo))
+                {
+                    ListaFiltros.Add(Builders<Thiado.DataDll.Entidades.MongoUsuarioEntidade>.Filter.Regex(e => e.Sexo, BsonRegularExpression.Create(new Regex($".*{buscaNome.Sexo}.*", RegexOptions.IgnoreCase))));
+                }
+                var a = buscaNome.Idade;
+                //if (buscaNome.Idade != 0 )
+                //{
+                //    ListaFiltros.Add(Builders<Thiado.DataDll.Entidades.MongoUsuarioEntidade>.Filter.Regex(e => e.Idade, BsonRegularExpression.Create(new Regex($".*{buscaNome.Idade}.*", RegexOptions.IgnoreCase))));
+                //}// aqui tem algo errado !! nao carrega a idade
             }
 
             if (ListaFiltros.Count > 0)

@@ -1,6 +1,8 @@
 ﻿APP.controller('MinhaControllerMongo', function ($scope) {//  tudo que variavel que eu criar no html vem nesse scope
 
-
+    $scope.Filtro = new Object(); // preciso instanciar o Filtro se não da undefined la no editar
+    
+    console.log($scope.Filtro);
     $scope.BuscarPorNome = function () {// poderia passar como parametro o nome e o buscaNome:nome
 
         aleatorios.loading();
@@ -28,25 +30,16 @@
             });
     };
 
-    $scope.Editar = function (item) {// de onde vem esse item?
+    $scope.Editar = function (item) {// este item vem co item do foreach do angular la no html
+        
 
-        $scope.id = item.Id;
-        $scope.nome = item.Nome;
-        $scope.idade = item.Idade;
-        $scope.sexo = item.Sexo;
-
-        if (resposta.Criticas.length > 0) {// COLOCAF ISSO SEMPR ENO SALVAR EDITAR E DELETAR
-
-            $(resposta.Criticas).each(function () {
-                $("#" + this.CampoId).addClass("formErro");
-                $("#" + this.CampoId).attr("Title", this.Mensagem);
-            });
-        } else {
-            if (resposta.Mensagem.length > 0) {
-                alert(resposta.Mensagem);
-            }
-        }
-
+        $scope.Filtro.Nome = item.Nome;
+        $scope.Filtro.Id = item.Id;
+        $scope.Filtro.Idade = item.Idade;
+        $scope.Filtro.Sexo = item.Sexo;
+        console.log($scope.Filtro);
+        //$scope.$apply();
+        
     };
 
     $scope.Deletar = function (id) {// Este id ta vindo lá do html. e é usado de novo para popular o registroId
