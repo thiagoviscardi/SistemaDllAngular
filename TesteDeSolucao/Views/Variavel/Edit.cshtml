@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*@section Css
+    {
+        @Html.IncludeCSS(Url.Content("~/Content/bootstrap.css"))
+        @Html.IncludeCSS(Url.Content("~/Content/Css/VariavelControle.Edit.css"))
+    }
+*@
+
+@section scripts{
+    <script src="~/Scripts/Variavel.Edit.js"></script>
+}
+
+<div ng-controller="VariavelControllerEdit">
+    @using (Html.BeginForm())
+    {
+        <input type="hidden" name="_id" id="_id" value="@ViewData["_id"]" />
+        <div id="divConteudo">
+            <h6>Cadastro de Variaveis</h6>
+            <div id="barraFerramentas" style="overflow: auto;">
+                <div style=" margin-right: 5px;margin-top: 5px; float: left;">
+                    <a class="button" id="btnSave" ng-click="Save()"><strong>Salvar</strong></a>
+                </div>
+            </div>
+        </div>
+
+        <div style="overflow: auto; margin-top: 10px;">
+            <div style="float: left;">
+                <table id="IdInsereInput" class="tblForm w-500-px" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>
+                            Tipo
+                        </td>
+                        <td>
+                            <select id="txtTipoVariavelControle" ng-model="Data.Tipo">
+                                <option value="">Selecione...</option>
+                                <option value="TEXT">Texto</option>
+                                <option value="COMBO">Combo</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr ng-if="Data.Tipo=='COMBO'">
+                        <td class="verticalAlignTop">
+                            <input class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" type="button" value="Adicionar" ng-click="AdicionaInput()" />
+                        </td>
+                        <td>
+                            <div ng-repeat="item in Data.Opcoes">
+                                <!--W Esse ng-repeat vai repetir a linha que ele esta e o que ta dentro dela.-->
+                                <input type="text" placeholder="Valor" ng-model="item.Valor" />
+                                <input type="text" placeholder="Descrição" ng-model="item.Descricao" />
+                                <input class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" type="button" value="Remover" ng-click="RemoveServico(Data.Opcoes, item)" />
+
+                            </div>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Descrição
+                        </td>
+                        <td>
+                            <textarea class="InputTextTC w-95" rows="4" id="txtDescricaoVariavelControle" ng-model="Data.Descricao"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Unidade de Medida
+                        </td>
+                        <td>
+                            <input id="txtUnidadeMedidaVariavelControle" type="text" ng-model="Data.UnidadeMedida" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Identificador da Variável
+                        </td>
+                        <td>
+                            <input id="txtVariavelLetraVariavelControle" type="text" ng-model="Data.VariavelLetra" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Código da Opção do Windchill
+                        </td>
+                        <td>
+                            <input id="txtVariavelWDLVariavelControle" type="text" ng-model="Data.VariavelWDL" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+    }
+</div>

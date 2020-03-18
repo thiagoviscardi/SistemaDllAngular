@@ -1,0 +1,76 @@
+﻿@*@{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }*@
+
+@*@section Css
+    {
+    @Html.IncludeCSS(Url.Content("~/Content/Css/VariavelControle.List.css"))
+}*@
+
+
+@section scripts{
+    <script src="~/Scripts/Variavel.List.js"></script>
+}
+
+@{
+    ViewBag.Title = "Index";// pra que serve isso??
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cadastros Auxiliares - Variáveis de Controle</h2>
+@using (Html.BeginForm())
+{
+    <div ng-controller="VariavelControllerList">
+        <div style="margin-top: 10px;">
+            <a class="button" href="~/Variavel/Edit"><b>Inserir</b></a>
+        </div>
+        <div id="barraFerramentas" style="overflow:auto;">
+
+            <div class="filtros">
+                <input class="filterField" id="txtId" name="txtId" type="text" placeholder="Código" value="" ng-model="Filtro.Id" />
+            </div>
+            <div class="filtros">
+                <input class="filterField" id="txtDescricao" name="txtDescricao" type="text" placeholder="Descrição" value="" ng-model="Filtro.Descricao" /> <!--tem que ter o mesmo nome dos atributos da entidade VariavelControle-->
+            </div>
+            <div class="filtros">
+                <input class="filterField" id="txtUnidadeMedida" name="txtUnidadeMedida" type="text" placeholder="Unidade de Medida" value="" ng-model="Filtro.UnidadeMedida" />
+            </div>
+            <div class="filtros">
+                <input class="filterField" id="txtVariavelLetra" name="txtVariavelLetra" type="text" placeholder="Identificador da Variável	" value="" ng-model="Filtro.VariavelLetra" />
+            </div>
+            <div class="filtros">
+                <input class="filterField" id="txtVariavelWDL" name="txtVariavelWDL" type="text" placeholder="Código da Opção do Windchill" value="" ng-model="Filtro.VariavelWDL" />
+            </div>
+            <div class="filtros">
+                <input type="button" id="btnFind" name="btnFind" value="Buscar" ng-click="LoadList()" />
+                <input type="button" id="btnClear" name="btnClear" value="Limpar" ng-click="ApagarFiltro()" />
+            </div>
+
+        </div>
+        <div style="margin-top: 10px;">
+            <table id="tblList" cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr style="height:25px !important;">
+                        <th class="btnAction">&nbsp;</th>
+                        <th><strong>Código</strong></th>
+                        <th><strong>Descrição</strong></th>
+                        <th><strong>Unida de Medida</strong></th>
+                        <th><strong>Identificador da Variável</strong></th>
+                        <th><strong>Código da Opção do Outro Sistema</strong></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="height:25px !important;" ng-repeat="item in variavelcontrole">
+                        <td class="btnAction"><a href="~/VariavelControle/Edit/{{item.Id}}"><i class="material-icons ico-default" title="Editar">edit</i></a></td>
+                        <td>{{item.Id}}</td>
+                        <td>{{item.Descricao}}</td>
+                        <td>{{item.UnidadeMedida}}</td>
+                        <td>{{item.VariavelLetra}}</td>
+                        <td>{{item.VariavelWDL}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+}         

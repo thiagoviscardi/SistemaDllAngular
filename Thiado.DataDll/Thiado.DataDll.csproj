@@ -91,6 +91,7 @@
     <Compile Include="Entidades\MongoUsuarioEntidade.cs" />
     <Compile Include="Entidades\TamborEntidade.cs" />
     <Compile Include="Entidades\UsuarioEntidade.cs" />
+    <Compile Include="Entidades\Variaveis.cs" />
     <Compile Include="Model\Correias.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -119,6 +120,7 @@
     <Compile Include="Services\CorreiaService.cs" />
     <Compile Include="Services\TamborService.cs" />
     <Compile Include="Services\UsuarioService.cs" />
+    <Compile Include="Services\VariavelService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
