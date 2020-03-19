@@ -26,19 +26,17 @@
 
     $scope.Save = function () {
         $(".inputError").removeClass("inputError");
-
-        console.log($scope.Data);
-        TMSA.Ajax.GetData(moduleName + "/Save", $scope.Data, function (response) {
-            console.log($scope.Data.Tipo);
+        aleatorios.ajax("POST", $scope.Data, "/Variavel/Save", function (response) {
+            //debugger;
+            console.log($scope.Data);
+            console.log(response);
             if (response.Criticas.length > 0) {
                 $(response.Criticas).each(function () {
+                    
                     $("#" + this.FieldId).addClass("inputError");
-                    TMSA.AddToolTip($("#" + this.FieldId), this.Message);
                 });
-                TMSA.ShowMessage(response.Message, "error");
             }
             else {
-                TMSA.ShowMessage(response.Message, response.MessageType);
                 $scope.Data = response.Data;
                 $scope.reNew = true;
                 $scope.$apply();
@@ -48,18 +46,61 @@
     };
 
 
+    //    TMSA.Ajax.GetData(moduleName + "/Save", $scope.Data, function (response) {
+    //        console.log($scope.Data.Tipo);
+    //        if (response.Criticas.length > 0) {
+    //            $(response.Criticas).each(function () {
+    //                $("#" + this.FieldId).addClass("inputError");
+    //                TMSA.AddToolTip($("#" + this.FieldId), this.Message);
+    //            });
+    //            TMSA.ShowMessage(response.Message, "error");
+    //        }
+    //        else {
+    //            TMSA.ShowMessage(response.Message, response.MessageType);
+    //            $scope.Data = response.Data;
+    //            $scope.reNew = true;
+    //            $scope.$apply();
+    //        }
+    //        $scope.ButtonsSettings(false);
+    //    }, true);
+    //};
+
+
+    var contador = 0;
+
     $scope.AdicionaInput = function () {
         $("#IdInsereInput").addClass("aumentaDiv");
         if ($scope.Data.Opcoes == null) {
             $scope.Data.Opcoes = [];
         }
-        $scope.Data.Opcoes.push({ "Valor": "", "Descricao": "" });
+        contador++;
+        console.log(contador)
+        $scope.Data.Opcoes.push({ "Valor": "", "Descricao": "", "Id": contador });
+        console.log($scope.Data.Opcoes);
     }
-    $scope.RemoveServico = function (arr, item) {
+    $scope.RemoveServicoTipo = function (arr, item) {
+        contador--;
+        //arr2 = arr;
         var index = arr.indexOf(item);
+        var valor = [];
+
+        //console.log(index+" index");
         arr.splice(index, 1);
-        console.log(arr);
-    };
+        var j = 0;
+        //debugger;
+        for (var i = 0; i < arr.length; i++) {
+            j++;
+
+            console.log($('#txtOpcoesDescricaoVariavelControle' + arr[i].Id));
+            $('#txtOpcoesDescricaoVariavelControle' + arr[i].Id).attr('id', 'txtOpcoesDescricaoVariavelControle' + j);
+
+            //$("tr[class='ng-scope'] td+td div:nth-child("+i+")").attr('id', 'txtOpcoesDescricaoVariavelControle' + j);
+
+            //console.log("txtOpcoesDescricaoVariavelControle" + j);
+
+            //$("tr[class='ng-scope'] td+td div:nth-child(1)").hide()// tentando pegar a posição pelo :nth-child mas ele nao apaga a posicao quando deleta o cmapo input
+        }
+    }; // não to conseguindo. pedir ajuda do Beis
 
 
     $scope.TestarCalculo = function () {

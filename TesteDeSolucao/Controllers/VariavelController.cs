@@ -139,25 +139,51 @@ namespace TesteDeSolucao.Controllers
             Thiado.DataDll.Services.VariavelService VariavelService = new Thiado.DataDll.Services.VariavelService(); //Data.ADO.VariavelControleADO VariavelControleADO = new Data.ADO.VariavelControleADO();
             TMSAMongo.Services.MongoService ServicoMongo = new TMSAMongo.Services.MongoService();
 
-            if (variavelcontrole.Descricao.Equals("null"))
+            if (variavelcontrole.Descricao == null)
             {
                 JsonRetorno.Criticas.Add(new Helper.Criticas() { FieldId = "txtDescricaoVariavelControle", Mensagem = "Campo Obrigatório." });
             }
-            if (variavelcontrole.UnidadeMedida.Equals("null"))
+            if (variavelcontrole.UnidadeMedida == null)
             {
                 JsonRetorno.Criticas.Add(new Helper.Criticas() { FieldId = "txtUnidadeMedidaVariavelControle", Mensagem = "Campo Obrigatório." });
             }
-            if (variavelcontrole.VariavelLetra.Equals("null"))
+            if (variavelcontrole.VariavelLetra == null)
             {
                 JsonRetorno.Criticas.Add(new Helper.Criticas() { FieldId = "txtVariavelLetraVariavelControle", Mensagem = "Campo Obrigatório." });
             }
-            if (variavelcontrole.VariavelWDL.Equals("null"))
+            if (variavelcontrole.VariavelWDL == null)
             {
                 JsonRetorno.Criticas.Add(new Helper.Criticas() { FieldId = "txtVariavelWDLVariavelControle", Mensagem = "Campo Obrigatório." });
             }
-            if (variavelcontrole.Tipo.Equals("0"))
+            if (variavelcontrole.Tipo == "" || variavelcontrole.Tipo == null)
             {
                 JsonRetorno.Criticas.Add(new Helper.Criticas() { FieldId = "txtTipoVariavelControle", Mensagem = "Campo Obrigatório." });
+            }
+
+            if (variavelcontrole.Tipo != null && variavelcontrole.Tipo == "COMBO" && variavelcontrole.Opcoes != null)
+            {
+                var count = 1;
+
+                foreach (var item in variavelcontrole.Opcoes)
+                {
+                    if (item == null)
+                    {
+                        JsonRetorno.Criticas.Add(new Helper.Criticas() { FieldId = "btnAdicionar", Mensagem = "Clique em Adicionar." });
+                    }
+                    else
+                    {
+                        if (item.Valor == null)
+                        {
+                            JsonRetorno.Criticas.Add(new Helper.Criticas() { /*Css = "txtOpcoesValorVariavelControle", */FieldId = "txtOpcoesValorVariavelControle" + count, Mensagem = "Campo Obrigatório." });
+                        }
+                        if (item.Descricao == null)
+                        {
+                            JsonRetorno.Criticas.Add(new Helper.Criticas() { /*Css = "txtOpcoesDescricaoVariavelControle",*/ FieldId = "txtOpcoesDescricaoVariavelControle" + count, Mensagem = "Campo Obrigatório." });
+                        }// tentar usar o Css ao inves fo FieldId
+                    }
+
+                    count++;
+                }
             }
 
             if (JsonRetorno.Criticas.Any())

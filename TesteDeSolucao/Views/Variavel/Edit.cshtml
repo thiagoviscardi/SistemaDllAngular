@@ -13,6 +13,9 @@
     <script src="~/Scripts/Variavel.Edit.js"></script>
 }
 
+    <link href="~/Content/Variavel.Edit.css" rel="stylesheet">
+
+
 <div ng-controller="VariavelControllerEdit">
     @using (Html.BeginForm())
     {
@@ -48,9 +51,9 @@
                         <td>
                             <div ng-repeat="item in Data.Opcoes">
                                 <!--W Esse ng-repeat vai repetir a linha que ele esta e o que ta dentro dela.-->
-                                <input type="text" placeholder="Valor" ng-model="item.Valor" />
-                                <input type="text" placeholder="Descrição" ng-model="item.Descricao" />
-                                <input class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" type="button" value="Remover" ng-click="RemoveServico(Data.Opcoes, item)" />
+                                <input id="txtOpcoesValorVariavelControle{{item.Id}}" type="text" placeholder="Valor" ng-model="item.Valor" />
+                                <input id="txtOpcoesDescricaoVariavelControle{{item.Id}}" type="text" placeholder="Descrição" ng-model="item.Descricao" />
+                                <input class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" type="button" value="Remover" ng-click="RemoveServicoTipo(Data.Opcoes, item)" />
 
                             </div>
                         </td>
